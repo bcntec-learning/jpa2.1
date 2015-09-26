@@ -11,4 +11,14 @@
     </parent>
 
 
+    <dependencies>
+
+        <dependency>
+            <groupId>org.jboss.arquillian.extension</groupId>
+            <artifactId>arquillian-persistence-dbunit</artifactId>
+            <version>1.0.0.Alpha7</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
 </project>

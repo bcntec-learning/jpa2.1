@@ -10,5 +10,22 @@
         <relativePath>../</relativePath>
     </parent>
 
+    <dependencies>
 
+        <dependency>
+            <!--repo http://download.osgeo.org/webdav/geotools/-->
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-geojson</artifactId>
+            <version>13.2</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <repositories>
+        <repository>
+            <id>geotools</id>
+            <url>http://download.osgeo.org/webdav/geotools/</url>
+        </repository>
+    </repositories>
 </project>

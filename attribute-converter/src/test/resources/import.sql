@@ -1,0 +1,1 @@
+INSERT INTO PUBLIC.USER(USERNAME, FIRSTNAME,LASTNAME, PASSWORD) VALUES ('fphilip', 'Francsico', 'Philip', 'cGFzc3dvcmQ=');
