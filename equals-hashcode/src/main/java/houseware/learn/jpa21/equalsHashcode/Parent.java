@@ -1,51 +1,37 @@
 package houseware.learn.jpa21.equalsHashcode;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
  * @author fphilip@houseware.es
  */
-@Data
 @Entity
-@Table(name="PARENTS")
+@Table(name = "PARENTS")
+@ToString()
 public class Parent {
-
+    @Getter
+    @Setter
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
+    @Getter
+    @Setter
     @Column
     String name;
 
-    @ManyToOne
-    Set<Child> childs;
-
-
-    @Override
-    public int hashCode() {
-        HashCodeBuilder hcb = new HashCodeBuilder();
-        hcb.append(getName());
-        return hcb.toHashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!(obj instanceof Parent)) {
-            return false;
-        }
-        Parent that = (Parent) obj;
-        EqualsBuilder eb = new EqualsBuilder();
-        eb.append(getName(), that.getName());
-        return eb.isEquals();
-    }
+    @Getter
+    @Setter
+    @OneToMany(cascade = CascadeType.ALL)
+    Set<Child> childs = new HashSet<>();
 
 }

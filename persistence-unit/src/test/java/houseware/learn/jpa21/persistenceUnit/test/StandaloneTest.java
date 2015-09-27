@@ -25,7 +25,7 @@ public class StandaloneTest {
         map.put("hibernate.show", "true");
         map.put("javax.persistence.jdbc.url","jdbc:hsqldb:mem:jpa21:persistence-unit");
 //        Persistence.generateSchema("jpa21", map);
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa21",map);
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa21:persistence-unit",map);
         EntityManager entityManager = factory.createEntityManager();
 
 

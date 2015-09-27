@@ -1,6 +1,7 @@
 package houseware.learn.jpa21.equalsHashcode;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -9,22 +10,32 @@ import javax.persistence.*;
 /**
  * @author fphilip@houseware.es
  */
-@Data
 @Entity
-@Table(name="CHILDS")
+@Table(name = "uqal")
 public class ChildEH {
 
+    @Getter
+    @Setter
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
-    @Column
+    @Getter
+    @Setter
+    @Column(unique = true)
     String name;
 
-    @OneToMany
+    @Getter
+    @Setter
+    @ManyToOne
     ParentEH parent;
 
+
+    public ChildEH(String name, ParentEH parent) {
+        this.name = name;
+        this.parent = parent;
+    }
 
     @Override
     public int hashCode() {
@@ -47,4 +58,12 @@ public class ChildEH {
         return eb.isEquals();
     }
 
+    @Override
+    public String toString() {
+        return "ChildEH{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", parent=" + parent.getId() +
+                '}';
+    }
 }

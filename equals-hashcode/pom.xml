@@ -11,14 +11,55 @@
     </parent>
 
 
+
+
     <dependencies>
+
+
+<!--
+
 
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.extension</groupId>
+            <artifactId>arquillian-persistence-dbunit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.container</groupId>
+            <artifactId>arquillian-weld-se-embedded-1.1</artifactId>
+            <scope>test</scope>
+        </dependency>
 
+-->
+        <!--         -->
+<!--
+
+        <dependency>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+-->
+        <!--
+
+
+
+        <dependency>
+            <groupId>org.apache.openejb</groupId>
+            <artifactId>arquillian-openejb-embedded-4</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+                -->
     </dependencies>
+
+
+
 
 </project>

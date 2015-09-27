@@ -13,11 +13,7 @@
 
     <dependencies>
 
-        <!--<dependency>-->
-            <!--<groupId>org.jboss.arquillian.junit</groupId>-->
-            <!--<artifactId>arquillian-junit-core</artifactId>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
+
 
     </dependencies>
 

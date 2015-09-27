@@ -2,43 +2,59 @@ package houseware.learn.jpa21.equalsHashcode.test;
 
 import houseware.learn.jpa21.equalsHashcode.Child;
 import houseware.learn.jpa21.equalsHashcode.Parent;
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.arquillian.persistence.UsingDataSet;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import lombok.Cleanup;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.*;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.List;
 
 /**
  * @author fphilip@houseware.es
  */
-@RunWith(Arquillian.class)
+@Slf4j
 public class NoEqualsHashcodeTest {
 
-    @PersistenceContext
-    private EntityManager entityManager;
 
-    @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap
-                .create(JavaArchive.class)
-                .addClasses(Child.class, Parent.class)
-                .addAsManifestResource("equals-hashcode.persistence.xml", "persistence.xml")
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
-    }
-
-    @Test
-//   	@ShouldMatchDataSet(value = "data/cc.yml", excludeColumns = "id")
+    @Test(expected = PersistenceException.class)
     public void test_2() {
+
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa21:no-equals-hashcode");
+        @Cleanup
+        EntityManager entityManager = factory.createEntityManager();
+        Parent parent = new Parent();
+        parent.setName("parent.2");
+        parent.getChilds().add(new Child("child.1", parent));
+        parent.getChilds().add(new Child("child.2", parent));
+        parent.getChilds().add(new Child("child.3", parent));
+        parent.getChilds().add(new Child("child.1", parent));
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        entityManager.persist(parent);
+        entityManager.flush();
+        transaction.commit();
+
+        transaction.begin();
+        List<Parent> parents = list(entityManager);
+        Assert.assertEquals("childs", 3,
+                parents.get(0).getChilds().size());
+        transaction.commit();
+
     }
 
-    @Test
-    @UsingDataSet("data/parent-child.yml")
-    public void test_1() {
+
+    public List<Parent> list(EntityManager entityManager) {
+        CriteriaQuery<Parent> criteriaQuery = entityManager.getCriteriaBuilder().createQuery(Parent.class);
+        Root<Parent> from = criteriaQuery.from(Parent.class);
+        CriteriaQuery<Parent> select = criteriaQuery.select(from);
+        List<Parent> list = entityManager.createQuery(criteriaQuery).getResultList();
+        for (Parent p : list) {
+            System.err.println("p?" + p);
+        }
+        return list;
     }
 }
