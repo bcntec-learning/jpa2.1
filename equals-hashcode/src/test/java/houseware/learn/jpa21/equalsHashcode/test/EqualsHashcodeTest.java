@@ -4,6 +4,7 @@ import houseware.learn.jpa21.equalsHashcode.Child;
 import houseware.learn.jpa21.equalsHashcode.Parent;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.persistence.UsingDataSet;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
@@ -16,7 +17,6 @@ import javax.persistence.PersistenceContext;
 /**
  * @author fphilip@houseware.es
  */
-
 @RunWith(Arquillian.class)
 public class EqualsHashcodeTest {
 
@@ -28,8 +28,7 @@ public class EqualsHashcodeTest {
         return ShrinkWrap
                 .create(JavaArchive.class)
                 .addClasses(Child.class, Parent.class)
-                .addAsManifestResource("META-INF/persistence.xml",
-                        "no-equals-hashcode.persistence.xml")
+                .addAsManifestResource("no-equals-hashcode.persistence.xml", "persistence.xml")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -39,7 +38,7 @@ public class EqualsHashcodeTest {
     }
 
     @Test
-   	@UsingDataSet("data/parent-child.yml")
+    @UsingDataSet("data/parent-child.yml")
     public void test_1() {
 //   		CreditCard cc = this.em.createNamedQuery(CreditCard.BY_NUMBER, CreditCard.class)
 //   		                       .setParameter("number", "123456789")

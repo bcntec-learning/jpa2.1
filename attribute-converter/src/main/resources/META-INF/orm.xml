@@ -3,6 +3,7 @@
                  version="2.1">
 
     <entity class="houseware.learn.jpa21.attributeConverter.User">
-        <convert converter="houseware.learn.jpa21.attributeConverter.Base64Converter" attribute-name="password"/>
+        <convert converter="houseware.learn.jpa21.attributeConverter.CryptoConverter" attribute-name="password"/>
     </entity>
+
 </entity-mappings>
