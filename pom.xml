@@ -21,6 +21,7 @@
         <module>no-sql</module>
         <module>persistence-unit</module>
         <module>transactional</module>
+        <module>unsincronyzed-persistence-context</module>
     </modules>
 
 

@@ -1,40 +1,38 @@
-package houseware.learn.jpa21.equalsHashcode;
+package houseware.learn.jpa21.unsynchronizedPersistenceContext;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * @author fphilip@houseware.es
  */
 @Entity
-@Table(name = "CHILDS_EH")
-public class ChildEH {
+public class Child {
 
     @Getter
     @Setter
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
-
-    @Getter
-    @Setter
-    @Column(unique = true)
     String name;
 
     @Getter
     @Setter
     @ManyToOne
-    ParentEH parent;
+    Parent parent;
 
+    public Child() {
+    }
 
-    public ChildEH(String name, ParentEH parent) {
-        this.name = name;
+    public Child(Parent parent, String name) {
         this.parent = parent;
+        this.name = name;
     }
 
     @Override
@@ -49,10 +47,10 @@ public class ChildEH {
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof ChildEH)) {
+        if (!(obj instanceof Child)) {
             return false;
         }
-        ChildEH that = (ChildEH) obj;
+        Child that = (Child) obj;
         EqualsBuilder eb = new EqualsBuilder();
         eb.append(getName(), that.getName());
         return eb.isEquals();
@@ -60,10 +58,9 @@ public class ChildEH {
 
     @Override
     public String toString() {
-        return "ChildEH{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", parent=" + parent.getId() +
+        return "Child{" +
+                "name='" + name + '\'' +
+                ", parent=" + parent.getName() +
                 '}';
     }
 }

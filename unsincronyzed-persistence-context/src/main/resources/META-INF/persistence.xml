@@ -4,17 +4,14 @@
              version="2.1">
 
 
-    <persistence-unit name="constructor-mapping-result" transaction-type="JTA">
+    <persistence-unit name="unsincronyzed-persistence-context" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
-        <class>houseware.learn.jpa21.constructorMappingResult.Author</class>
-        <class>houseware.learn.jpa21.constructorMappingResult.Book</class>
-        <class>houseware.learn.jpa21.constructorMappingResult.Queries</class>
+        <class>houseware.learn.jpa21.unsynchronizedPersistenceContext.Child</class>
+        <class>houseware.learn.jpa21.unsynchronizedPersistenceContext.Parent</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
             <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.transaction.flush_before_completion" value="true"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
         </properties>
     </persistence-unit>
