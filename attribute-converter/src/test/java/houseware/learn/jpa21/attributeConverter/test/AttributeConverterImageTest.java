@@ -61,15 +61,10 @@ public class AttributeConverterImageTest {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa21:attribute-converter");
         @Cleanup
         EntityManager entityManager = factory.createEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
 
-
-        transaction.begin();
         User user = entityManager.find(User.class, "jduke");
         Assert.assertNotNull("invalid decode",  user.getIcon());
         Assert.assertNotNull("invalid decode", user.getIcon().getHeight());
-        entityManager.flush();
-        transaction.commit();
 
 
     }

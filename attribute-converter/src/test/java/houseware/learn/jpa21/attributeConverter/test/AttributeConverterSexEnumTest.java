@@ -22,14 +22,8 @@ public class AttributeConverterSexEnumTest {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa21:attribute-converter");
         @Cleanup
         EntityManager entityManager = factory.createEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
-
-
-        transaction.begin();
         User user = entityManager.find(User.class, "fphilip");
         Assert.assertEquals("invalid decode", SexEnum.MALE, user.getSex());
-        entityManager.flush();
-        transaction.commit();
 
 
     }
@@ -40,10 +34,8 @@ public class AttributeConverterSexEnumTest {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa21:attribute-converter");
         @Cleanup
         EntityManager entityManager = factory.createEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
 
 
-        transaction.begin();
         User user = entityManager.createQuery("select u from User u " +
                 "where  u.username= :username " +
                 "and u.sex = :sex", User.class)

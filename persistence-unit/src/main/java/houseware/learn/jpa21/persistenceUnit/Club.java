@@ -2,10 +2,7 @@ package houseware.learn.jpa21.persistenceUnit;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * @author fphilip@houseware.es

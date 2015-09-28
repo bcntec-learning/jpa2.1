@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "ORDER_ITEMS")
 public class OrderItem {
 
     @Getter
@@ -19,7 +20,6 @@ public class OrderItem {
     @Getter
     @Setter
     @Version
-    @Column
     int version = 0;
 
     @Getter

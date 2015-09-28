@@ -8,9 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@NamedEntityGraph(name = "graph.Order.items",
-        attributeNodes = @NamedAttributeNode(value = "items", subgraph = "items"),
-        subgraphs = @NamedSubgraph(name = "items", attributeNodes = @NamedAttributeNode("product")))
+@Table(name = "ORDERS")
+@NamedEntityGraphs({
+        @NamedEntityGraph(name = "graph.Order.items",
+                attributeNodes = @NamedAttributeNode(value = "items", subgraph = "items"),
+                subgraphs = @NamedSubgraph(name = "items", attributeNodes = @NamedAttributeNode("product"))),
+        @NamedEntityGraph(name = "graph.Order.items.products",
+                attributeNodes = @NamedAttributeNode(value = "items", subgraph = "items"),
+                subgraphs = @NamedSubgraph(name = "items", attributeNodes = @NamedAttributeNode("product")))
+
+})
+
 public class Order {
     @Getter
     @Setter
@@ -33,5 +41,5 @@ public class Order {
     @Getter
     @Setter
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
-    Set<OrderItem> items = new HashSet<OrderItem>();
+    Set<OrderItem> items = new HashSet<>();
 }
