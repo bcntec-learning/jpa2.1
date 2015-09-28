@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author fphilip@houseware.es
  */
 @Entity
-public class Author implements Serializable {
+public class Author {
 
     @Getter
     @Setter

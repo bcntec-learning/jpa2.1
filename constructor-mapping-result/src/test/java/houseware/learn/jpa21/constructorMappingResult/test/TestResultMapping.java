@@ -38,21 +38,17 @@ public class TestResultMapping {
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
                 .addAsManifestResource("META-INF/orm.xml",
                         "orm.xml");
-         log.info(j.toString(true));
+        log.info(j.toString(true));
         return j;
     }
 
 
-
-
-
-
     @Test
     @UsingDataSet("data/test.yml")
-    public void query_with_book_and_author_without_entity_mapping() {
+    public void nativequery_with_book_and_author_without_entity_mapping() {
 
         List<Object[]> results = this.em.createNativeQuery(
-                "SELECT b.id, b.title, b.author_id, b.version, a.id as authorId, a.firstName, a.lastName, a.version as authorVersion "+
+                "SELECT b.id, b.title, b.author_id, b.version, a.id as authorId, a.firstName, a.lastName, a.version as authorVersion " +
                         "FROM Book b JOIN Author a ON b.author_id = a.id").getResultList();
         results.stream().forEach((record) -> {
             System.out.println("Author: ID [" + record[3] + "] firstName [" + record[4]
@@ -60,12 +56,13 @@ public class TestResultMapping {
 
         });
     }
+
     @Test
     @UsingDataSet("data/test.yml")
-    public void query_with_author_with_entity_mapping() {
+    public void nativequery_with_author_with_entity_mapping() {
 
         List<Author> results = this.em.createNativeQuery(
-                "SELECT a.id as authorId, a.firstName, a.lastName, a.version  "+
+                "SELECT a.id as authorId, a.firstName, a.lastName, a.version  " +
                         "FROM Author a  ", Author.class).getResultList();
         results.stream().forEach((record) -> {
             System.out.println("Author: ID [" + record.getId() + "] firstName [" + record.getFirstName()
@@ -84,7 +81,7 @@ public class TestResultMapping {
 
     @Test
     @UsingDataSet("data/test.yml")
-    public void query_with_author_book_entity_mapping() {
+    public void nativequery_with_author_book_entity_mapping() {
         List<Object[]> results = this.em.createNativeQuery(
                 "SELECT b.id, b.title, b.author_id, b.version, a.id as authorId, a.firstName, a.lastName, a.version as authorVersion " +
                         "FROM Book b JOIN Author a ON b.author_id = a.id", "BookAuthorMapping").getResultList();
@@ -98,7 +95,7 @@ public class TestResultMapping {
 
     @Test
     @UsingDataSet("data/test.yml")
-    public void query_with_AuthorBookEntityXmlMapping() {
+    public void nativequery_with_AuthorBookEntityXmlMapping() {
         List<Object[]> results = this.em.createNativeQuery(
                 "SELECT b.id, b.title, b.author_id, b.version, a.id as authorId, a.firstName, a.lastName, a.version as authorVersion " +
                         "FROM Book b JOIN Author a ON b.author_id = a.id", "BookAuthorMappingXml").getResultList();
@@ -137,10 +134,9 @@ public class TestResultMapping {
     }
 
 
-
     @Test
     @UsingDataSet("data/test.yml")
-    public void query_autor_total_without_totalbean() {
+    public void namedquery_autor_total_without_totalbean() {
         List<Object[]> results = this.em.createNamedQuery("AuthorBookCountXml").getResultList();
         results.stream().forEach((record) -> {
             Author author = (Author) record[0];
@@ -151,11 +147,19 @@ public class TestResultMapping {
 
     @Test
     @UsingDataSet("data/test.yml")
-    public void query_autor_total_with_totalbean() {
-        List<TotalBook> results = this.em.createNamedQuery("TotalBookMappingXml").getResultList();
+    public void namedquery_autor_total_with_totalbean() {
+        List<TotalBook> results = this.em.createNamedQuery("TotalBook").getResultList();
         results.stream().forEach((record) -> {
+            System.out.println("Author: ID [" + record.getId() + "] firstName [" + record.getFirstName() + "] lastName [" + record.getLastName() + "] number of books [" + record.getTotal() + "]");
+        });
+    }
 
-                    System.out.println("Author: ID [" + record.getId() + "] firstName [" + record.getFirstName() + "] lastName [" + record.getLastName() + "] number of books [" + record.getTotal() + "]");
+    @Test
+    @UsingDataSet("data/test.yml")
+    public void query_autor_total_with_totalbean_xml() {
+        List<TotalBook> results = this.em.createNamedQuery("TotalBookXml").getResultList();
+        results.stream().forEach((record) -> {
+            System.out.println("Author: ID [" + record.getId() + "] firstName [" + record.getFirstName() + "] lastName [" + record.getLastName() + "] number of books [" + record.getTotal() + "]");
         });
     }
 

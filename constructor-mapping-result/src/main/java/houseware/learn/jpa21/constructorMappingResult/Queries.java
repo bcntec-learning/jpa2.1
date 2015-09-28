@@ -7,14 +7,20 @@ package houseware.learn.jpa21.constructorMappingResult;
 import javax.persistence.*;
 
 @NamedNativeQueries({
-        @NamedNativeQuery (name="BookAuthor", resultSetMapping = "BookAuthorMapping",
-                query="SELECT b.id, b.title, b.author_id, b.version, a.id as authorId, a.firstName, a.lastName, a.version as authorVersion " +
-                        "FROM Book b JOIN Author a ON b.author_id = a.id") ,
-        @NamedNativeQuery (name="AuthorBookCount",
-                query="SELECT a.id, a.firstName, a.lastName, a.version, count(b.id) as bookCount " +
+        @NamedNativeQuery(name = "BookAuthor", resultSetMapping = "BookAuthorMapping",
+                query = "SELECT b.id, b.title, b.author_id, b.version, a.id as authorId, a.firstName, a.lastName, a.version as authorVersion " +
+                        "FROM Book b JOIN Author a ON b.author_id = a.id"),
+        @NamedNativeQuery(name = "AuthorBookCount",
+                query = "SELECT a.id, a.firstName, a.lastName, a.version, count(b.id) as bookCount " +
                         "FROM Book b JOIN Author a ON b.author_id = a.id GROUP BY a.id, a.firstName, a.lastName, a.version"),
-        @NamedNativeQuery (name="AuthorBookCountXml",  resultSetMapping = "AuthorBookCountMappingXml",
-                query="SELECT a.id, a.firstName, a.lastName, a.version, count(b.id) as bookCount " +
+        @NamedNativeQuery(name = "AuthorBookCountXml", resultSetMapping = "AuthorBookCountMappingXml",
+                query = "SELECT a.id, a.firstName, a.lastName, a.version, count(b.id) as bookCount " +
+                        "FROM Book b JOIN Author a ON b.author_id = a.id GROUP BY a.id, a.firstName, a.lastName, a.version"),
+        @NamedNativeQuery(name = "TotalBookXml", resultSetMapping = "TotalBookMappingXml",
+                query = "SELECT a.id, a.firstName, a.lastName, a.version, count(b.id) as bookCount " +
+                        "FROM Book b JOIN Author a ON b.author_id = a.id GROUP BY a.id, a.firstName, a.lastName, a.version"),
+        @NamedNativeQuery(name = "TotalBook", resultSetMapping = "TotalBookMapping",
+                query = "SELECT a.id, a.firstName, a.lastName, a.version, count(b.id) as bookCount " +
                         "FROM Book b JOIN Author a ON b.author_id = a.id GROUP BY a.id, a.firstName, a.lastName, a.version")})
 @SqlResultSetMappings({
         @SqlResultSetMapping(
@@ -34,6 +40,15 @@ import javax.persistence.*;
                                         @FieldResult(name = "firstName", column = "firstName"),
                                         @FieldResult(name = "lastName", column = "lastName"),
                                         @FieldResult(name = "version", column = "authorVersion")})}),
+        @SqlResultSetMapping(
+                name = "TotalBookMapping",
+                classes = @ConstructorResult(
+                        targetClass = TotalBook.class,
+                        columns = {
+                                @ColumnResult(name = "id", type = Long.class),
+                                @ColumnResult(name = "firstName"),
+                                @ColumnResult(name = "lastName"),
+                                @ColumnResult(name = "bookCount", type = Long.class)}))
 
 })
 @MappedSuperclass

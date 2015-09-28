@@ -18,7 +18,7 @@ import javax.persistence.FetchType;
  */
 
 @Entity
-public class Book implements Serializable {
+public class Book {
     @Getter
     @Setter
     @Id

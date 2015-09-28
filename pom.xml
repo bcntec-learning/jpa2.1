@@ -12,11 +12,9 @@
         <module>attribute-converter</module>
         <module>constructor-mapping-result</module>
         <module>criteria-api-bulk-operations</module>
-        <module>entity-graph</module>
         <module>equals-hashcode</module>
         <module>generating-db-schema</module>
         <module>jpql</module>
-        <module>java8-localdatetime</module>
         <module>mapping</module>
         <module>named-entity-graph</module>
         <module>named-store-procedure-query</module>
@@ -31,7 +29,6 @@
 
         <java.source>1.8</java.source>
         <java.target>1.8</java.target>
-
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
@@ -92,7 +89,7 @@
                         <module.path>${project.parent.build.directory}/wildfly-${wildfly.version}/modules</module.path>
                     </systemPropertyVariables>
                     <redirectTestOutputToFile>false</redirectTestOutputToFile>
-                    <argLine>-Xms1024m -Xmx2048m </argLine>
+                    <argLine>-Xms1024m -Xmx2048m</argLine>
                 </configuration>
             </plugin>
         </plugins>
@@ -100,7 +97,6 @@
 
 
     <dependencyManagement>
-
         <dependencies>
 
             <dependency>
@@ -317,8 +313,6 @@
                 <version>1.0.0.Alpha7</version>
             </dependency>
         </dependencies>
-
-
 
 
     </dependencyManagement>
