@@ -26,7 +26,7 @@ public class AttributeConverterCryptoTest {
         @Cleanup
         EntityManager entityManager = factory.createEntityManager();
 
-        User user = entityManager.createQuery("select u from User u " +
+        User user = entityManager.createQuery("from User u " +
                 "where  u.username= :username " +
                 "and u.password = :pass", User.class)
                 .setParameter("username", "fphilip")

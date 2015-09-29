@@ -32,7 +32,7 @@ import static org.junit.Assert.assertEquals;
  */
 @Slf4j
 @RunWith(Arquillian.class)
-public class UnsynchronizedPersistenceRestTest {
+public abstract class UnsynchronizedPersistenceRestTest {
 
     private static WebTarget target;
 

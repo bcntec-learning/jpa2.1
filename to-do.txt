@@ -1,0 +1,2 @@
+Los test de unsincronyzed-persistence-context estan deshabilitados
+no-sql esta desctivado

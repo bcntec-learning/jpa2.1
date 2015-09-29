@@ -23,7 +23,7 @@ import javax.persistence.PersistenceContext;
  */
 @Slf4j
 @RunWith(Arquillian.class)
-public class UnsynchronizedPeristenceContextTest {
+public abstract class UnsynchronizedPeristenceContextTest {
     @EJB
     Controller controller;
 

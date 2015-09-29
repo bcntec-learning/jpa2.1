@@ -16,6 +16,7 @@
         <module>generating-db-schema</module>
         <module>jpql</module>
         <module>mapping</module>
+        <module>named-queries</module>
         <module>named-entity-graph</module>
         <module>named-store-procedure-query</module>
         <module>no-sql</module>
