@@ -1,6 +1,7 @@
 package houseware.learn.jpa21.unsynchronizedPersistenceContext;
 
 import javax.annotation.PreDestroy;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -13,8 +14,8 @@ import java.util.List;
 @Path("rest")
 @Produces("text/json")
 @SessionScoped
-public class RestResource implements Serializable {
-    @Inject
+public class ResourceRest implements Serializable {
+    @EJB
     private Controller controller;
 
 

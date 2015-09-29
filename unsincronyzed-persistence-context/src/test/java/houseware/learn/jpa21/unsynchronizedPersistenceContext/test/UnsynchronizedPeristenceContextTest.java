@@ -56,6 +56,7 @@ public class UnsynchronizedPeristenceContextTest {
         controller.myCommit();
         Assert.assertEquals(" ", 3, entityManager.createQuery("from Parent").getResultList().size());
     }
+
     @Test
     @InSequence(1)
     public void add_child() {

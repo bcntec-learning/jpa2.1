@@ -16,8 +16,16 @@
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
-            <version>1.46.1</version>
-            <scope>test</scope>
+            <version>1.50.0</version>
         </dependency>
+
+        <dependency>
+      			<groupId>org.mongodb</groupId>
+      			<artifactId>mongo-java-driver</artifactId>
+      			<version>3.0.4</version>
+      			<scope>provided</scope>
+      			<optional>true</optional>
+      		</dependency>
+
     </dependencies>
 </project>

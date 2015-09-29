@@ -21,6 +21,7 @@ import java.util.List;
 /**
  * @author fphilip@houseware.es
  */
+@SuppressWarnings("unchecked")
 @RunWith(Arquillian.class)
 @Slf4j
 public class TestResultMapping {

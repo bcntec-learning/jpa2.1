@@ -8,7 +8,7 @@
             <pattern>%-5p %contextName [%thread] %c{3}:%L - %m%n</pattern>
         </encoder>
     </appender>
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="jpa21-test"/>
     </root>
 

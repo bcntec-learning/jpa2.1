@@ -13,6 +13,10 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.apache.openejb</groupId>
+            <artifactId>arquillian-openejb-embedded-4</artifactId>
+        </dependency>
 
 
     </dependencies>
