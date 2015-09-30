@@ -1,0 +1,7 @@
+
+
+#Hibernate Name Strategy
+
+#Metamodel
+
+

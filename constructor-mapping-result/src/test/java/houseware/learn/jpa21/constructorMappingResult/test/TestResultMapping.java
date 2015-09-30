@@ -52,7 +52,7 @@ public class TestResultMapping {
                 "SELECT b.id, b.title, b.author_id, b.version, a.id as authorId, a.firstName, a.lastName, a.version as authorVersion " +
                         "FROM Book b JOIN Author a ON b.author_id = a.id").getResultList();
         results.stream().forEach((record) -> {
-            System.out.println("Author: ID [" + record[3] + "] firstName [" + record[4]
+            log.info("Author: ID [" + record[3] + "] firstName [" + record[4]
                     + "] lastName [" + record[5] + "] Book: ID [" + record[0] + "] Title [" + record[1] + "]");
 
         });
@@ -66,7 +66,7 @@ public class TestResultMapping {
                 "SELECT a.id as authorId, a.firstName, a.lastName, a.version  " +
                         "FROM Author a  ", Author.class).getResultList();
         results.stream().forEach((record) -> {
-            System.out.println("Author: ID [" + record.getId() + "] firstName [" + record.getFirstName()
+            log.info("Author: ID [" + record.getId() + "] firstName [" + record.getFirstName()
                     + "] lastName [" + record.getLastName() + "]");
 
         });
@@ -89,8 +89,8 @@ public class TestResultMapping {
         results.stream().forEach((record) -> {
             Book book = (Book) record[0];
             Author author = (Author) record[1];
-            System.out.println("Author: ID [" + author.getId() + "] firstName [" + author.getFirstName() + "] lastName [" + author.getLastName() + "]");
-            System.out.println("Book: ID [" + book.getId() + "] title[" + book.getTitle() + "] author [" + book.getAuthor().getFirstName() + " " + book.getAuthor().getLastName() + "]");
+            log.info("Author: ID [" + author.getId() + "] firstName [" + author.getFirstName() + "] lastName [" + author.getLastName() + "]");
+            log.info("Book: ID [" + book.getId() + "] title[" + book.getTitle() + "] author [" + book.getAuthor().getFirstName() + " " + book.getAuthor().getLastName() + "]");
         });
     }
 
@@ -103,8 +103,8 @@ public class TestResultMapping {
         results.stream().forEach((record) -> {
             Book book = (Book) record[1];
             Author author = (Author) record[0];
-            System.out.println("Author: ID [" + author.getId() + "] firstName [" + author.getFirstName() + "] lastName [" + author.getLastName() + "]");
-            System.out.println("Book: ID [" + book.getId() + "] title[" + book.getTitle() + "]");
+            log.info("Author: ID [" + author.getId() + "] firstName [" + author.getFirstName() + "] lastName [" + author.getLastName() + "]");
+            log.info("Book: ID [" + book.getId() + "] title[" + book.getTitle() + "]");
         });
     }
 
@@ -116,8 +116,8 @@ public class TestResultMapping {
         results.stream().forEach((record) -> {
             Book book = (Book) record[0];
             Author author = (Author) record[1];
-            System.out.println("Author: ID [" + author.getId() + "] firstName [" + author.getFirstName() + "] lastName [" + author.getLastName() + "]");
-            System.out.println("Book: ID [" + book.getId() + "] title[" + book.getTitle() + "] author [" + book.getAuthor().getFirstName() + " " + book.getAuthor().getLastName() + "]");
+            log.info("Author: ID [" + author.getId() + "] firstName [" + author.getFirstName() + "] lastName [" + author.getLastName() + "]");
+            log.info("Book: ID [" + book.getId() + "] title[" + book.getTitle() + "] author [" + book.getAuthor().getFirstName() + " " + book.getAuthor().getLastName() + "]");
         });
     }
 
@@ -129,8 +129,8 @@ public class TestResultMapping {
         results.stream().forEach((record) -> {
             Book book = (Book) record[0];
             Author author = (Author) record[1];
-            System.out.println("Author: ID [" + author.getId() + "] firstName [" + author.getFirstName() + "] lastName [" + author.getLastName() + "]");
-            System.out.println("Book: ID [" + book.getId() + "] title[" + book.getTitle() + "]");
+            log.info("Author: ID [" + author.getId() + "] firstName [" + author.getFirstName() + "] lastName [" + author.getLastName() + "]");
+            log.info("Book: ID [" + book.getId() + "] title[" + book.getTitle() + "]");
         });
     }
 
@@ -142,7 +142,7 @@ public class TestResultMapping {
         results.stream().forEach((record) -> {
             Author author = (Author) record[0];
             Long bookCount = (Long) record[1];
-            System.out.println("Author: ID [" + author.getId() + "] firstName [" + author.getFirstName() + "] lastName [" + author.getLastName() + "] number of books [" + bookCount + "]");
+            log.info("Author: ID [" + author.getId() + "] firstName [" + author.getFirstName() + "] lastName [" + author.getLastName() + "] number of books [" + bookCount + "]");
         });
     }
 
@@ -151,7 +151,7 @@ public class TestResultMapping {
     public void namedquery_autor_total_with_totalbean() {
         List<TotalBook> results = this.em.createNamedQuery("TotalBook").getResultList();
         results.stream().forEach((record) -> {
-            System.out.println("Author: ID [" + record.getId() + "] firstName [" + record.getFirstName() + "] lastName [" + record.getLastName() + "] number of books [" + record.getTotal() + "]");
+            log.info("Author: ID [" + record.getId() + "] firstName [" + record.getFirstName() + "] lastName [" + record.getLastName() + "] number of books [" + record.getTotal() + "]");
         });
     }
 
@@ -160,7 +160,7 @@ public class TestResultMapping {
     public void query_autor_total_with_totalbean_xml() {
         List<TotalBook> results = this.em.createNamedQuery("TotalBookXml").getResultList();
         results.stream().forEach((record) -> {
-            System.out.println("Author: ID [" + record.getId() + "] firstName [" + record.getFirstName() + "] lastName [" + record.getLastName() + "] number of books [" + record.getTotal() + "]");
+            log.info("Author: ID [" + record.getId() + "] firstName [" + record.getFirstName() + "] lastName [" + record.getLastName() + "] number of books [" + record.getTotal() + "]");
         });
     }
 

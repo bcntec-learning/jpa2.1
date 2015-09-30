@@ -10,11 +10,13 @@
 
     <modules>
         <module>attribute-converter</module>
+        <module>entity-event-listener</module>
         <module>constructor-mapping-result</module>
         <module>criteria-api-bulk-operations</module>
         <module>equals-hashcode</module>
         <module>generating-db-schema</module>
         <module>jpql</module>
+        <module>metamodel</module>
         <module>mapping</module>
         <module>named-queries</module>
         <module>named-entity-graph</module>

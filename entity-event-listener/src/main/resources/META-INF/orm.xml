@@ -1,0 +1,20 @@
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
+                 version="2.1"
+        >
+    <persistence-unit-metadata>
+        <persistence-unit-defaults>
+            <entity-listeners>
+                <entity-listener class="houseware.learn.jpa21.entityEventListener.DefaultListener">
+                    <pre-persist method-name="pre"/>
+                    <pre-update method-name="pre"/>
+                    <pre-remove method-name="pre"/>
+                    <post-load method-name="post"/>
+                    <post-update method-name="post"/>
+                    <post-remove method-name="post"/>
+                </entity-listener>
+            </entity-listeners>
+        </persistence-unit-defaults>
+    </persistence-unit-metadata>
+</entity-mappings>
