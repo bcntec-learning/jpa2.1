@@ -13,6 +13,7 @@ public class SimpleTest extends AbstractTest {
         doCase((entityManager, tx) -> {
            Simple s = new Simple();
             s.setData("persisting my data");
+            entityManager.persist(s);
         });
 
 
@@ -22,8 +23,8 @@ public class SimpleTest extends AbstractTest {
     @Test
     public void remove() {
         doCase((entityManager, tx) -> {
-
-
+            Simple s = entityManager.find(Simple.class,11L);
+            entityManager.remove(s);
         });
 
 

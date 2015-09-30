@@ -13,6 +13,7 @@
     </root>
 
 
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
     <logger name="org.hibernate.type" level="INFO"/>
     <logger name="org.hibernate.tool.hbm2ddl.SchemaExport" level="DEBUG"/>
 </configuration>
