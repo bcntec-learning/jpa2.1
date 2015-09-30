@@ -10,7 +10,7 @@
         <properties>
             <property name="openjpa.InitializeEagerly" value="true"/>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
-            <!--todo <property name="hibernate.hbm2ddl.import_files" value="import.sql"/>-->
+            <!--todo <property name="javax.persistence.sql-load-script-source" value="import.sql"/>-->
         </properties>
     </persistence-unit>
 

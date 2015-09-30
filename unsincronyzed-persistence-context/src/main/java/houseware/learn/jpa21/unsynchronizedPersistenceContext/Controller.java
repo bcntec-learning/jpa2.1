@@ -1,11 +1,14 @@
 package houseware.learn.jpa21.unsynchronizedPersistenceContext;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+@Slf4j
 @Stateful
 public class Controller implements Serializable {
     @PersistenceContext(type = PersistenceContextType.EXTENDED, synchronization = SynchronizationType.UNSYNCHRONIZED)
@@ -51,7 +54,12 @@ public class Controller implements Serializable {
     }
 
     public Parent childAdd(String parent, String child) {
-        return entityManager.merge(find(parent).addChild(child).getParent());
+        Parent p = find(parent);
+        log.info(p.getName());
+        Child c  = p.addChild(child);
+        log.info("{}({}) -> {}",
+                c.getParent().getName(),c.getParent().getChilds().size(), c.getName());
+        return entityManager.merge(c.getParent());
     }
 
     public Parent childRemove(String parent, String child) {

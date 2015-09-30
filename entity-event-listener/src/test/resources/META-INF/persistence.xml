@@ -27,4 +27,5 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:jpa21:inherit-event-listener"/>
         </properties>
     </persistence-unit>
+
 </persistence>

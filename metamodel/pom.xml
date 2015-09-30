@@ -22,6 +22,12 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>houseware.learn.jpa21</groupId>
+            <artifactId>mapping</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
 
     </dependencies>
 

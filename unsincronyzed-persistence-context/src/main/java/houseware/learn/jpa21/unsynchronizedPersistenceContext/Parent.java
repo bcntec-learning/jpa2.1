@@ -28,7 +28,7 @@ public class Parent {
 
     @Getter
     @Setter
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     Set<Child> childs = new HashSet<>();
 
     public Parent(String name) {
@@ -58,7 +58,9 @@ public class Parent {
 
 
     public Child addChild(String child) {
-        return new Child(this, child);
+        Child c = new Child(this, child);
+        getChilds().add(c);
+        return c;
     }
 
     public Parent removeChild(String child) {

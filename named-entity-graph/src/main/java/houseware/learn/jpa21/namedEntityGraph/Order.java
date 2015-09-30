@@ -11,8 +11,7 @@ import java.util.Set;
 @Table(name = "ORDERS")
 @NamedEntityGraphs({
         @NamedEntityGraph(name = "graph.Order.items",
-                attributeNodes = @NamedAttributeNode(value = "items", subgraph = "items"),
-                subgraphs = @NamedSubgraph(name = "items", attributeNodes = @NamedAttributeNode("product"))),
+                attributeNodes = @NamedAttributeNode(value = "items", subgraph = "items")),
         @NamedEntityGraph(name = "graph.Order.items.products",
                 attributeNodes = @NamedAttributeNode(value = "items", subgraph = "items"),
                 subgraphs = @NamedSubgraph(name = "items", attributeNodes = @NamedAttributeNode("product")))

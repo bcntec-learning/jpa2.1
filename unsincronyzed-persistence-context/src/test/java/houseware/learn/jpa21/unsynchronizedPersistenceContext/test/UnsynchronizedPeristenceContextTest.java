@@ -17,13 +17,14 @@ import org.junit.runner.RunWith;
 import javax.ejb.EJB;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 /**
  * @author fphilip@houseware.es
  */
 @Slf4j
 @RunWith(Arquillian.class)
-public abstract class UnsynchronizedPeristenceContextTest {
+public  class UnsynchronizedPeristenceContextTest {
     @EJB
     Controller controller;
 
@@ -52,9 +53,10 @@ public abstract class UnsynchronizedPeristenceContextTest {
 
         Assert.assertNotNull(controller.parentFind("one"));
 
-        Assert.assertEquals(" ",0, controller.parentList().size());
+        Assert.assertEquals("P.A ",0, controller.parentList().size());
+        Assert.assertEquals("P.B ", 0, entityManager.createQuery("from Parent").getResultList().size());
         controller.myCommit();
-        Assert.assertEquals(" ", 3, entityManager.createQuery("from Parent").getResultList().size());
+        Assert.assertEquals("P.C ", 3, entityManager.createQuery("from Parent").getResultList().size());
     }
 
     @Test
@@ -65,10 +67,11 @@ public abstract class UnsynchronizedPeristenceContextTest {
 
         Assert.assertEquals("added second child",2,controller.childAdd("one", "one.two").getChilds().size());
 
-        Assert.assertEquals(" ", 0, entityManager.find(Parent.class, "one").getChilds().size());
+        Assert.assertEquals("C.A", 0, entityManager.find(Parent.class, "one").getChilds().size());
         controller.myCommit();
-        Assert.assertEquals(" ", 2, entityManager.find(Parent.class, "one").getChilds().size());
+        Assert.assertEquals("C.B", 2, entityManager.find(Parent.class, "one").getChilds().size());
     }
+
 
 
 }

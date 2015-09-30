@@ -1,0 +1,2 @@
+Polimorfic Queries
+Gen Attributes

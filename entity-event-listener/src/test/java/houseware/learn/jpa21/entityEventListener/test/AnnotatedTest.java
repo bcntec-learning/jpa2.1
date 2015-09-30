@@ -25,7 +25,7 @@ public class AnnotatedTest extends AbstractTest {
     public void remove() {
         doCase((entityManager, tx) -> {
 
-            Annotated s = entityManager.find(Annotated.class, 1L);
+            Annotated s = entityManager.find(Annotated.class, 12L);
             entityManager.remove(s);
         });
 

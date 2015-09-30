@@ -16,6 +16,15 @@ import javax.persistence.Persistence;
 public class SecondaryTableTest {
 
     @Test
+    public void secondary_table_context() {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:secondary-table");
+        @Cleanup
+        EntityManager em = emf.createEntityManager();
+    }
+
+
+    @Test
     public void user_onetoone() {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:secondary-table");

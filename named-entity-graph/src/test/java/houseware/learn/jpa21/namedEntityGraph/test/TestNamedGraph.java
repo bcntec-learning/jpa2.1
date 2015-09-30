@@ -50,7 +50,6 @@ public class TestNamedGraph {
         Order order = entityManager.find(Order.class, 1L, hints);
 
         entityManager.close();
-        order.getItems();
         Assert.assertEquals(order.getItems().size(),3);
 
 
@@ -96,7 +95,7 @@ public class TestNamedGraph {
     }
 
 
-    @Test
+    @Test  (expected = LazyInitializationException.class)
     public void with_graph_access_product_without_subgraph() {
         EntityManager entityManager = factory.createEntityManager();
 
