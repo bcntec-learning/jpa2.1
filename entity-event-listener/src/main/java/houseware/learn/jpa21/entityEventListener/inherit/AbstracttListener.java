@@ -13,38 +13,38 @@ public class AbstracttListener {
 
     @PrePersist
     public void prePersist(AbstractEntity data) {
-        log.info("PrePersist", data);
+        log.info("PrePersist {}", data);
     }
 
     @PostPersist
     public void postPersist(AbstractEntity data) {
-        log.info("PostPersist", data);
+        log.info("PostPersist {}", data);
     }
 
     @PreUpdate
     public void preUpdate(AbstractEntity data) {
-        log.info("PreUpdate", data);
+        log.info("PreUpdate {}", data);
     }
 
     @PostUpdate
     public void postUpdate(AbstractEntity data) {
-        log.info("PostUpdate", data);
+        log.info("PostUpdate {}", data);
     }
 
 
     @PostLoad
     public void postLoad(AbstractEntity data) {
-        log.info("PostLoad", data);
+        log.info("PostLoad {}", data);
     }
 
     @PreRemove
     public void preRemove(AbstractEntity data) {
-        log.info("PreRemove", data);
+        log.info("PreRemove {}", data);
     }
 
     @PostRemove
     public void postRemove(AbstractEntity data) {
-        log.info("PostRemove", data);
+        log.info("PostRemove {}", data);
     }
 
 }

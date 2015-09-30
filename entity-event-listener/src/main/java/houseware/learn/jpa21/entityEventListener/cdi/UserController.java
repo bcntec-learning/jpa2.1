@@ -22,12 +22,10 @@ public class UserController {
     }
 
     public List<User> list() {
-        return entityManager.createQuery("from Person", User.class).getResultList();
+        return entityManager.createQuery("from User", User.class).getResultList();
     }
 
-    public List<UserRegisterLog> listAudits() {
-        return entityManager.createQuery("from AuditLog", UserRegisterLog.class).getResultList();
-    }
+
 
     public void registerLog(UserRegisterLog userRegisterLog) {
         entityManager.persist(userRegisterLog);

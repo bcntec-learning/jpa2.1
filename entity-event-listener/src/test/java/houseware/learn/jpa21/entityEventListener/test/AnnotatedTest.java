@@ -1,20 +1,18 @@
 package houseware.learn.jpa21.entityEventListener.test;
 
+import houseware.learn.jpa21.entityEventListener.simple.Annotated;
 import houseware.learn.jpa21.entityEventListener.simple.Simple;
 import org.junit.Test;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 /**
  * @author fphilip@houseware.es
  */
-public class SimpleTest extends AbstractTest {
+public class AnnotatedTest extends AbstractTest {
 
     @Test
     public void persist() {
         doCase((entityManager, tx) -> {
-            Simple s = new Simple();
+            Annotated s = new Annotated();
             s.setData("persisting my data");
             entityManager.persist(s);
         });
@@ -27,7 +25,7 @@ public class SimpleTest extends AbstractTest {
     public void remove() {
         doCase((entityManager, tx) -> {
 
-            Simple s = entityManager.find(Simple.class, 11L);
+            Annotated s = entityManager.find(Annotated.class, 1L);
             entityManager.remove(s);
         });
 

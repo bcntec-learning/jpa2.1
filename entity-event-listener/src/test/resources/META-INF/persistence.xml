@@ -5,10 +5,9 @@
 
     <persistence-unit name="jpa21:simple-event-listener">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>houseware.learn.jpa21.entityEventListener.simple.Annotated</class>
         <class>houseware.learn.jpa21.entityEventListener.simple.Simple</class>
         <properties>
-            <property name="hibernate.ejb.naming_strategy"
-                      value="houseware.learn.jpa21.metamodel.CrazyHibernate5NamingStrategy"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
             <property name="hibernate.show" value="true"/>
@@ -16,15 +15,15 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:jpa21:simple-event-listener"/>
         </properties>
     </persistence-unit>
+
     <persistence-unit name="jpa21:inherit-event-listener">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>houseware.learn.jpa21.entityEventListener.simple.Simple</class>
+        <class>houseware.learn.jpa21.entityEventListener.inherit.Inherit</class>
         <properties>
-            <property name="hibernate.ejb.naming_strategy"
-                      value="houseware.learn.jpa21.metamodel.CrazyHibernate5NamingStrategy"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
             <property name="hibernate.show" value="true"/>
+            <property name="hibernate.hbm2ddl.import_files" value="/import-inherit.sql"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:jpa21:inherit-event-listener"/>
         </properties>
     </persistence-unit>

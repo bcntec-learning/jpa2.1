@@ -16,7 +16,9 @@ public class AbstractTest {
             EntityManager entityManager = factory.createEntityManager();
             EntityTransaction tx = entityManager.getTransaction();
             tx.begin();
+
             doIt.doIt(entityManager,tx);
+
             tx.commit();
     }
 }

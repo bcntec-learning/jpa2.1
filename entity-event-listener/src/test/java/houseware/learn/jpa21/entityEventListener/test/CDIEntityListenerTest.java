@@ -19,7 +19,7 @@ import javax.inject.Inject;
 @SuppressWarnings("unchecked")
 @RunWith(Arquillian.class)
 @Slf4j
-public abstract class CDIEntityListenerTest {
+public  class CDIEntityListenerTest {
 
     @Inject
     private UserController userController;

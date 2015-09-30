@@ -1,6 +1,5 @@
 package houseware.learn.jpa21.entityEventListener.simple;
 
-import houseware.learn.jpa21.entityEventListener.oldskool.Oldskool;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
@@ -10,38 +9,38 @@ public class AnnotatedtListener {
 
 
     @PrePersist
-    public void prePersist(Oldskool data) {
-        log.info("PrePersist", data);
+    public void prePersist(Annotated data) {
+        log.info("PrePersist {}", data);
     }
 
     @PostPersist
-    public void postPersist(Oldskool data) {
-        log.info("PostPersist", data);
+    public void postPersist(Annotated data) {
+        log.info("PostPersist {}", data);
     }
 
     @PreUpdate
-    public void preUpdate(Oldskool data) {
-        log.info("PreUpdate", data);
+    public void preUpdate(Annotated data) {
+        log.info("PreUpdate {}", data);
     }
 
     @PostUpdate
-    public void postUpdate(Oldskool data) {
-        log.info("PostUpdate", data);
+    public void postUpdate(Annotated data) {
+        log.info("PostUpdate {}", data);
     }
 
 
     @PostLoad
-    public void postLoad(Oldskool data) {
-        log.info("PostLoad", data);
+    public void postLoad(Annotated data) {
+        log.info("PostLoad {}", data);
     }
 
     @PreRemove
-    public void preRemove(Oldskool data) {
-        log.info("PreRemove", data);
+    public void preRemove(Annotated data) {
+        log.info("PreRemove {}", data);
     }
 
     @PostRemove
-    public void postRemove(Oldskool data) {
-        log.info("PostRemove", data);
+    public void postRemove(Annotated data) {
+        log.info("PostRemove {}", data);
     }
 }

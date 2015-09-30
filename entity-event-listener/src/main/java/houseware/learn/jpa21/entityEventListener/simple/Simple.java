@@ -20,37 +20,37 @@ public class Simple {
 
     @PrePersist
     public void prePersist() {
-        log.info("PrePersist ", this);
+        log.info("PrePersist {}", this);
     }
 
     @PostPersist
     public void postPersist() {
-        log.info("PostPersist ", this);
+        log.info("PostPersist {} ", this);
     }
 
     @PreUpdate
     public void preUpdate() {
-        log.info("PreUpdate ", this);
+        log.info("PreUpdate {}", this);
     }
 
     @PostUpdate
     public void postUpdate() {
-        log.info("PostUpdate ", this);
+        log.info("PostUpdate {}", this);
     }
 
 
     @PostLoad
     public void postLoad() {
-        log.info("PostLoad ", this);
+        log.info("PostLoad {}", this);
     }
 
     @PreRemove
     public void preRemove() {
-        log.info("PreRemove ", this);
+        log.info("PreRemove {}", this);
     }
 
     @PostRemove
     public void postRemove() {
-        log.info("PostRemove ", this);
+        log.info("PostRemove {}", this);
     }
 }
