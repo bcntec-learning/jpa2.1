@@ -63,7 +63,7 @@ public class MetamodelAnalyzeTest {
 
 
                     log.info("Entity :"+
-                            e.getName() + "+("+m.getJavaType()+""+m.getAttribute("")+")");
+                            e.getName() + "+("+m.getJavaType()+")");
                     m.getAttributes().stream().forEach((a ->{
                         log.info("    "+a.getName() + " (type="+a.getJavaType()+" /asociation="+a.isAssociation()
                                 +" /colllection="+a.isCollection() +" /JPA Type="+a.getPersistentAttributeType().name());

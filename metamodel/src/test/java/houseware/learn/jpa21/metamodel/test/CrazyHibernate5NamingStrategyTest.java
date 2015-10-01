@@ -13,11 +13,11 @@ import javax.persistence.Persistence;
 @Slf4j
 public class CrazyHibernate5NamingStrategyTest {
 
-
+    //todo
     @Test
     public void crazyNames() {
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa21:hibernate-things");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa21:simple");
         EntityManager entityManager = factory.createEntityManager();
         entityManager.getMetamodel();
     }

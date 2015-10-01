@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * @author fphilip@houseware.es
  */
-public class SchemsTest {
+public class SchemaGenerationTest {
 
 
     @Test
@@ -49,8 +49,8 @@ public class SchemsTest {
 
         Map<String, Object> p = new HashMap<>();
 
-
-        p.put("hibernate.hbm2ddl.auto", "drop-and-create");
+        p.put("javax.persistence.schema-generation.database.action", "drop-and-create");
+        p.put("hibernate.hbm2ddl.auto", "create");
         p.put("javax.persistence.schema-generation.scripts.action", "drop-and-create");
         p.put("javax.persistence.schema-generation.scripts.drop-target", "./" + pu + ".ddl");
         p.put("javax.persistence.schema-generation.scripts.create-target", "./" + pu + ".ddl");
