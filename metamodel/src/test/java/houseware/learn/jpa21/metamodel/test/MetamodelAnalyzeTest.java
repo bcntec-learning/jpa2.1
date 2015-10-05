@@ -64,11 +64,14 @@ public class MetamodelAnalyzeTest {
                     ManagedType<?> m = metamodel.managedType(e.getJavaType());
 
 
-                    log.info("Entity :" +
+                    log.info("  Entity :" +
                             e.getName() + " (" + m.getJavaType() + ")");
                     m.getAttributes().stream().forEach((a -> {
                         log.info("    " + a.getName() + " (type=" + a.getJavaType() + " /asociation=" + a.isAssociation()
                                 + " /colllection=" + a.isCollection() + " /JPA Type=" + a.getPersistentAttributeType().name());
+                        if (a.isAssociation()) {
+                            log.info("      associated " + a.getDeclaringType().getJavaType().getSimpleName());
+                        }
                     }));
                 });
 
@@ -77,10 +80,29 @@ public class MetamodelAnalyzeTest {
 //                (System.out::println);
                 (e -> {
                     ManagedType<?> m = metamodel.managedType(e.getJavaType());
-                    log.info("Embeddable : (" + m.getJavaType() + ")");
+                    log.info("  Embeddable : (" + m.getJavaType() + ")");
                     m.getAttributes().stream().forEach((a -> {
+
                         log.info("    " + a.getName() + " (type=" + a.getJavaType() + " /asociation=" + a.isAssociation()
                                 + " /colllection=" + a.isCollection() + " /JPA Type=" + a.getPersistentAttributeType().name());
+                        if (a.isAssociation()) {
+                            log.info("      " + a.getDeclaringType().getJavaType().getSimpleName());
+                        }
+                    }));
+                });
+        log.info("Managed Types");
+        metamodel.getManagedTypes().stream().forEach
+//                (System.out::println);
+                (e -> {
+                    ManagedType<?> m = metamodel.managedType(e.getJavaType());
+                    log.info("  Managed Type : (" + m.getJavaType() + ")");
+                    m.getAttributes().stream().forEach((a -> {
+
+                        log.info("    " + a.getName() + " (type=" + a.getJavaType() + " /asociation=" + a.isAssociation()
+                                + " /colllection=" + a.isCollection() + " /JPA Type=" + a.getPersistentAttributeType().name());
+                        if (a.isAssociation()) {
+                            log.info("      " + a.getDeclaringType().getJavaType().getSimpleName());
+                        }
                     }));
                 });
 
