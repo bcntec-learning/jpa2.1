@@ -15,7 +15,7 @@ import java.util.Set;
 @NamedQueries({
         @NamedQuery(
                 name = "Message.text",
-                query = "select m from Message m where m.text like :message and :tag member of m.messageTags"
+                query = "select object(m) from Message m where m.text like :message and :tag member of m.messageTags"
         )
 })
 public class Message {

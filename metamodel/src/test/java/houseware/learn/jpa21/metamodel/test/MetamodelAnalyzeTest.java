@@ -8,6 +8,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.metamodel.ManagedType;
 import javax.persistence.metamodel.Metamodel;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author fphilip@houseware.es
@@ -48,10 +50,10 @@ public class MetamodelAnalyzeTest {
     }
 
 
-
-    private void analyze(String pu){
-
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory(pu);
+    private void analyze(String pu) {
+        Map<String, String> opts = new HashMap<>();
+        opts.put("hibernate.hbm2ddl.auto", "none");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(pu, opts);
         EntityManager entityManager = factory.createEntityManager();
         Metamodel metamodel = entityManager.getMetamodel();
 
@@ -62,11 +64,23 @@ public class MetamodelAnalyzeTest {
                     ManagedType<?> m = metamodel.managedType(e.getJavaType());
 
 
-                    log.info("Entity :"+
-                            e.getName() + "+("+m.getJavaType()+")");
-                    m.getAttributes().stream().forEach((a ->{
-                        log.info("    "+a.getName() + " (type="+a.getJavaType()+" /asociation="+a.isAssociation()
-                                +" /colllection="+a.isCollection() +" /JPA Type="+a.getPersistentAttributeType().name());
+                    log.info("Entity :" +
+                            e.getName() + " (" + m.getJavaType() + ")");
+                    m.getAttributes().stream().forEach((a -> {
+                        log.info("    " + a.getName() + " (type=" + a.getJavaType() + " /asociation=" + a.isAssociation()
+                                + " /colllection=" + a.isCollection() + " /JPA Type=" + a.getPersistentAttributeType().name());
+                    }));
+                });
+
+        log.info("Embeddables");
+        metamodel.getEmbeddables().stream().forEach
+//                (System.out::println);
+                (e -> {
+                    ManagedType<?> m = metamodel.managedType(e.getJavaType());
+                    log.info("Embeddable : (" + m.getJavaType() + ")");
+                    m.getAttributes().stream().forEach((a -> {
+                        log.info("    " + a.getName() + " (type=" + a.getJavaType() + " /asociation=" + a.isAssociation()
+                                + " /colllection=" + a.isCollection() + " /JPA Type=" + a.getPersistentAttributeType().name());
                     }));
                 });
 

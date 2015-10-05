@@ -5,7 +5,7 @@
     <appender name="jpa21-test" class="ch.qos.logback.core.ConsoleAppender">
         <Target>System.out</Target>
         <encoder>
-            <pattern>%-5p %contextName [%thread] %c{3}:%L - %m%n</pattern>
+            <pattern>%m%n</pattern>
         </encoder>
     </appender>
     <root level="INFO">

@@ -50,10 +50,9 @@ public class SchemaGenerationTest {
         Map<String, Object> p = new HashMap<>();
 
         p.put("javax.persistence.schema-generation.database.action", "drop-and-create");
-        p.put("hibernate.hbm2ddl.auto", "create");
         p.put("javax.persistence.schema-generation.scripts.action", "drop-and-create");
-        p.put("javax.persistence.schema-generation.scripts.drop-target", "./" + pu + ".ddl");
-        p.put("javax.persistence.schema-generation.scripts.create-target", "./" + pu + ".ddl");
+        p.put("javax.persistence.schema-generation.scripts.drop-target", "./target/" + pu.replace(':','_') + ".ddl");
+        p.put("javax.persistence.schema-generation.scripts.create-target", "./target/" + pu.replace(':','_') + ".ddl");
 
          Persistence.generateSchema(pu, p);
 
