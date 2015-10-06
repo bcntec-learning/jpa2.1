@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>entity-manager</artifactId>
+    <parent>
+        <groupId>houseware.learn.jpa21</groupId>
+        <artifactId>jpa21</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+    <dependencies>
+
+
+        <dependency>
+            <groupId>houseware.learn.jpa21</groupId>
+            <artifactId>persistence-unit</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>houseware.learn.jpa21</groupId>
+            <artifactId>mapping</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>de.juplo</groupId>
+                <artifactId>hibernate4-maven-plugin</artifactId>
+                <version>1.1.0</version>
+                <configuration>
+                    <envers>true</envers>
+                    <target>SCRIPT</target>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>mysql-create</id>
+                        <configuration>
+                            <hibernateDialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernateDialect>
+                            <outputFile>${project.build.directory}/generated/META-INF/sql/jpa21-mysql-create.sql
+                            </outputFile>
+                            <type>CREATE</type>
+                        </configuration>
+                        <goals>
+                            <goal>export</goal>
+                        </goals>
+                        <phase>process-classes</phase>
+                    </execution>
+                    <execution>
+                        <id>mysql-drop</id>
+                        <configuration>
+                            <hibernateDialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernateDialect>
+                            <outputFile>${project.build.directory}/generated/META-INF/sql/jpa21-mysql-drop.sql
+                            </outputFile>
+                            <type>DROP</type>
+                        </configuration>
+                        <goals>
+                            <goal>export</goal>
+                        </goals>
+                        <phase>process-classes</phase>
+                    </execution>
+                    <execution>
+                        <id>h2-create</id>
+                        <configuration>
+                            <hibernateDialect>org.hibernate.dialect.H2Dialect</hibernateDialect>
+                            <outputFile>${project.build.directory}/generated/META-INF/sql/jpa21-h2-create.sql
+                            </outputFile>
+                            <type>CREATE</type>
+                        </configuration>
+                        <goals>
+                            <goal>export</goal>
+                        </goals>
+                        <phase>process-classes</phase>
+                    </execution>
+                    <execution>
+                        <id>h2-drop</id>
+                        <configuration>
+                            <hibernateDialect>org.hibernate.dialect.H2Dialect</hibernateDialect>
+                            <outputFile>${project.build.directory}/generated/META-INF/sql/jpa21-h2-drop.sql</outputFile>
+                            <type>DROP</type>
+                        </configuration>
+                        <goals>
+                            <goal>export</goal>
+                        </goals>
+                        <phase>process-classes</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

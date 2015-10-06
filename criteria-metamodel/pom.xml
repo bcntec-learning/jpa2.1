@@ -3,12 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>criteria-metamodel</artifactId>
+
     <parent>
         <groupId>houseware.learn.jpa21</groupId>
         <artifactId>jpa21</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
+
     <dependencies>
 
 
@@ -27,9 +29,75 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${pom.basedir}/src/main/java</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <id>copy-sources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${pom.basedir}/src/main/java</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${pom.basedir}/../mapping/src/main/java/</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                                <resource>
+                                    <directory>${pom.basedir}/../persistence-unit/src/main/java/</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <profiles>
         <profile>
-            <id>hibernate</id>
+            <id>hibernate-processor</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <compilerArguments>
+                                <processor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor</processor>
+                            </compilerArguments>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+            </build>
+
+            <dependencies>
+                <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-jpamodelgen</artifactId>
+                    <version>1.2.0.Final</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>hibernate-maven</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -65,7 +133,7 @@
             </build>
         </profile>
         <profile>
-            <id>openejb</id>
+            <id>openejb-maven</id>
 
             <build>
                 <plugins>
@@ -102,7 +170,7 @@
             </build>
         </profile>
         <profile>
-            <id>datanucleus</id>
+            <id>datanucleus-maven</id>
 
             <build>
                 <plugins>
@@ -137,7 +205,7 @@
             </build>
         </profile>
         <profile>
-            <id>eclipse</id>
+            <id>eclipse-maven</id>
 
             <build>
                 <plugins>

@@ -1,4 +1,4 @@
-package houseware.learn.jpa21.namedQueries;
+package houseware.learn.jpa21.namedQueries.domain;
 
 import lombok.Getter;
 import lombok.Setter;

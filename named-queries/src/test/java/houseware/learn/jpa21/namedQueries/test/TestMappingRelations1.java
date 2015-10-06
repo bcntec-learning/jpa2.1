@@ -1,9 +1,9 @@
 package houseware.learn.jpa21.namedQueries.test;
 
-import houseware.learn.jpa21.namedQueries.Message;
-import houseware.learn.jpa21.namedQueries.MessageTag;
-import houseware.learn.jpa21.namedQueries.MessageType;
-import houseware.learn.jpa21.namedQueries.User;
+import houseware.learn.jpa21.namedQueries.domain.Message;
+import houseware.learn.jpa21.namedQueries.domain.MessageTag;
+import houseware.learn.jpa21.namedQueries.domain.MessageType;
+import houseware.learn.jpa21.namedQueries.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -12,9 +12,7 @@ import org.jboss.arquillian.persistence.PersistenceTest;
 import org.jboss.arquillian.persistence.UsingDataSet;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

@@ -6,10 +6,10 @@
 
     <persistence-unit name="namedQueries1" transaction-type="JTA">
         <jta-data-source>Default JDBC Database</jta-data-source>
-        <class>houseware.learn.jpa21.namedQueries.MessageType</class>
-        <class>houseware.learn.jpa21.namedQueries.MessageTag</class>
-        <class>houseware.learn.jpa21.namedQueries.Message</class>
-        <class>houseware.learn.jpa21.namedQueries.User</class>
+        <class>houseware.learn.jpa21.namedQueries.domain.MessageType</class>
+        <class>houseware.learn.jpa21.namedQueries.domain.MessageTag</class>
+        <class>houseware.learn.jpa21.namedQueries.domain.Message</class>
+        <class>houseware.learn.jpa21.namedQueries.domain.User</class>
         <properties>
             <property name="openjpa.InitializeEagerly" value="true"/>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>

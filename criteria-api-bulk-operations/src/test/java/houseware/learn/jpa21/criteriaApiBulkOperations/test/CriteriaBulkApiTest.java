@@ -30,10 +30,6 @@ public class CriteriaBulkApiTest {
         @Cleanup
         EntityManager entityManager = factory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        entityManager.flush();
-        transaction.commit();
-
 
         transaction.begin();
 
@@ -52,9 +48,6 @@ public class CriteriaBulkApiTest {
         @Cleanup
         EntityManager entityManager = factory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        entityManager.flush();
-        transaction.commit();
 
 
         transaction.begin();
@@ -73,9 +66,6 @@ public class CriteriaBulkApiTest {
         @Cleanup
         EntityManager entityManager = factory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        entityManager.flush();
-        transaction.commit();
 
 
         transaction.begin();
