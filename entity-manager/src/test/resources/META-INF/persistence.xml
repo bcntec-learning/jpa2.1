@@ -7,7 +7,8 @@
     <persistence-unit name="jpa21:entityManager">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>houseware.learn.jpa21.entityManager.Country</class>
-        <!--<class>houseware.learn.jpa21.entityManager.People</class>-->
+        <class>houseware.learn.jpa21.entityManager.People</class>
+        <class>houseware.learn.jpa21.entityManager.Trace</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>

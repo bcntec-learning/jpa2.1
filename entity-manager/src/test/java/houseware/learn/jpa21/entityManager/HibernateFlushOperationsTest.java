@@ -107,12 +107,12 @@ public class HibernateFlushOperationsTest {
 
     private void assortedEnities(EntityManager em) {
 
-        Country spain = crearCountry(em, "Spain");
-        Country argentine = crearCountry(em, "Argentine");
-        Country france = crearCountry(em, "France");
-        Country england = crearCountry(em, "England");
-        Country italy = crearCountry(em, "Italy");
-        Country poland = crearCountry(em, "Poland");
+        Country spain = crearCountry(em, "ES","Spain");
+        Country argentine = crearCountry(em,"AR", "Argentine");
+        Country france = crearCountry(em,"FR", "France");
+        Country england = crearCountry(em,"EN", "England");
+        Country italy = crearCountry(em, "IT","Italy");
+        Country poland = crearCountry(em, "Po","Poland");
 
         em.flush();
         log.info("flushed");
@@ -125,12 +125,13 @@ public class HibernateFlushOperationsTest {
         italy.setName("ITALY");
         em.persist(italy);
 
-        Country netherlands = crearCountry(em, "Netherlands");
+        Country netherlands = crearCountry(em, "NE","Netherlands");
         em.persist(netherlands);
     }
 
-    private static Country crearCountry(EntityManager em, String name) {
+    private static Country crearCountry(EntityManager em, String id, String name) {
         Country country = new Country();
+        country.setId(id);
         country.setName(name);
         country.setEnabled(Boolean.TRUE);
         em.persist(country);
