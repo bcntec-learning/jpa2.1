@@ -19,10 +19,15 @@ public class ComparasionTest extends AbstractTest {
     public void equal() {
         EntityManager entityManager = factory.createEntityManager();
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+
         CriteriaQuery<Country> query = builder.createQuery(Country.class);
         Root<Country> root = query.from(Country.class);
         query.select(root);
-        query.where(builder.equal(root.get(Country_.id),"US"));
+
+        query.where(
+                builder.equal(root.get(Country_.id),"US")
+        );
+
         List<Country> countries = entityManager.createQuery(query).getResultList();
         assertAndShow(1, countries);
 
@@ -37,7 +42,9 @@ public class ComparasionTest extends AbstractTest {
         CriteriaQuery<Country> query = builder.createQuery(Country.class);
         Root<Country> root = query.from(Country.class);
         query.select(root);
+
         query.where(builder.notEqual(root.get(Country_.id),"US"));
+
         List<Country> countries = entityManager.createQuery(query).getResultList();
         assertAndShow(18, countries);
     }
@@ -48,7 +55,9 @@ public class ComparasionTest extends AbstractTest {
         CriteriaQuery<Country> query = builder.createQuery(Country.class);
         Root<Country> root = query.from(Country.class);
         query.select(root);
+
         query.where(builder.lessThan(root.get(Country_.id), "US"));
+
         List<Country> countries = entityManager.createQuery(query).getResultList();
         assertAndShow(6, countries);
 
@@ -63,7 +72,9 @@ public class ComparasionTest extends AbstractTest {
         CriteriaQuery<Country> query = builder.createQuery(Country.class);
         Root<Country> root = query.from(Country.class);
         query.select(root);
+
         query.where(builder.greaterThan(root.get(Country_.id), "US"));
+
         List<Country> countries = entityManager.createQuery(query).getResultList();
         assertAndShow(12, countries);
     }
@@ -76,9 +87,11 @@ public class ComparasionTest extends AbstractTest {
         CriteriaQuery<Country> query = builder.createQuery(Country.class);
         Root<Country> root = query.from(Country.class);
         query.select(root);
+
         query.where(
                 builder.in(root.get(Country_.id)).value( "UY").value( "UG").value( "UA").value( "YE")
         );
+
         List<Country> countries = entityManager.createQuery(query).getResultList();
         assertAndShow(4, countries);
 
