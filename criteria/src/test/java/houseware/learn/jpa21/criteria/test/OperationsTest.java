@@ -88,6 +88,6 @@ public class OperationsTest extends AbstractTest {
                 builder.and(builder.conjunction(), builder.equal(root.get(Country_.id), "VE")))
         ;
         List<Country> countries = entityManager.createQuery(query).getResultList();
-        assertAndShow(19, countries);
+        assertAndShow(1, countries);
     }
 }
