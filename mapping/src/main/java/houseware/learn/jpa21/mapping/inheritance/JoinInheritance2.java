@@ -9,6 +9,6 @@ import javax.persistence.InheritanceType;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class JoinInheritance extends AbstractInheritance {
-    private String joinData;
+public class JoinInheritance2 extends JoinInheritance {
+    private String joinData2;
 }

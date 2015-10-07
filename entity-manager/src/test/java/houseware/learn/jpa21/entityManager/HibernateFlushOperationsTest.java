@@ -51,6 +51,17 @@ public class HibernateFlushOperationsTest {
     }
 
 
+    @Test
+    public void flush_commit_case_with_find_notfound() {
+        _case_with_find_notfound(FlushModeType.COMMIT);
+    }
+
+    @Test
+    public void flush_auto_case_with_find_notfound() {
+        _case_with_find_notfound(FlushModeType.AUTO);
+    }
+
+
 
     private void _case_with_find(FlushModeType mode) {
 
@@ -65,7 +76,31 @@ public class HibernateFlushOperationsTest {
 
 
         log.info("find, see sql executed");
-        em.find(Country.class, 2);
+        em.find(Country.class, "EN");
+
+        log.info("commited, see sql executed");
+        tx.commit();
+        em.close();
+
+    }
+
+
+
+
+    private void _case_with_find_notfound(FlushModeType mode) {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
+
+        EntityManager em = emf.createEntityManager();
+        em.setFlushMode(mode);
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        assortedEnities(em);
+
+
+        log.info("find, see sql executed");
+        em.find(Country.class, "ZZZZ");
 
         log.info("commited, see sql executed");
         tx.commit();

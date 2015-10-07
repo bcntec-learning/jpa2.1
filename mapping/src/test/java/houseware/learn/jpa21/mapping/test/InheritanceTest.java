@@ -1,6 +1,7 @@
 package houseware.learn.jpa21.mapping.test;
 
 import houseware.learn.jpa21.mapping.inheritance.JoinInheritance;
+import houseware.learn.jpa21.mapping.inheritance.JoinInheritance2;
 import lombok.Cleanup;
 import org.junit.Test;
 
@@ -19,7 +20,7 @@ public class InheritanceTest {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:inheritance");
         @Cleanup
         EntityManager em = emf.createEntityManager();
-        em.find(JoinInheritance.class,"abc");
+        em.find(JoinInheritance2.class,"abc");
 
     }
 

@@ -4,10 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 
 /**
  * @author fphilip@houseware.es
@@ -24,8 +21,9 @@ public class PersistVsMergeTest extends Assert {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        People e = new People();
 
+        People e = new People();
+        e.setId(1);
         e.setName("pepe");
         em.persist(e);
         e.setName("Pepe");
@@ -33,11 +31,13 @@ public class PersistVsMergeTest extends Assert {
         log.info("commited, see sql executed");
         tx.commit();
 
-
-        People p = em.find(People.class, 1);
-        assertNotNull(p);
-        assertEquals("pepe", p.getName());
         em.close();
+
+        EntityManager z = emf.createEntityManager();
+        People p = z.find(People.class, 1);
+        assertNotNull(p);
+        assertEquals("Pepe", p.getName());
+        z.close();
     }
 
     @Test
@@ -49,7 +49,9 @@ public class PersistVsMergeTest extends Assert {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+
         People e = new People();
+        e.setId(2);
         e.setName("juan");
         em.merge(e);
         e.setName("Juan");
@@ -57,7 +59,7 @@ public class PersistVsMergeTest extends Assert {
 
         tx.commit();
 
-        People p = em.find(People.class, 1);
+        People p = em.find(People.class, 2);
         assertNotNull(p);
         assertEquals("juan", p.getName());
 
@@ -74,13 +76,14 @@ public class PersistVsMergeTest extends Assert {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         People e = new People();
+        e.setId(3);
         e.setName("pedro");
         People e2 = em.merge(e);
         e2.setName("Pedro");
         log.info("commited, see sql executed");
         tx.commit();
 
-        People p = em.find(People.class, 1);
+        People p = em.find(People.class, 3);
         assertNotNull(p);
         assertEquals("Pedro", p.getName());
 

@@ -20,10 +20,11 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>houseware.learn.jpa21.mapping.collections.Employee</class>
         <class>houseware.learn.jpa21.mapping.collections.Phone</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
-            <property name="hibernate.show" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:collections"/>
             <property name="javax.persistence.sql-load-script-source" value="collections-import.sql"/>
         </properties>
@@ -37,6 +38,7 @@
         <class>houseware.learn.jpa21.mapping.relations.MessageTag</class>
         <class>houseware.learn.jpa21.mapping.relations.MessageType</class>
         <class>houseware.learn.jpa21.mapping.relations.Sender</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
@@ -51,6 +53,7 @@
          <class>houseware.learn.jpa21.mapping.secondaryTable.UserFull</class>
          <class>houseware.learn.jpa21.mapping.secondaryTable.UserExt</class>
          <class>houseware.learn.jpa21.mapping.secondaryTable.User</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
@@ -66,11 +69,13 @@
          <class>houseware.learn.jpa21.mapping.inheritance.AbstractInheritance</class>
          <class>houseware.learn.jpa21.mapping.inheritance.BasicInheritance</class>
          <class>houseware.learn.jpa21.mapping.inheritance.JoinInheritance</class>
+         <class>houseware.learn.jpa21.mapping.inheritance.JoinInheritance2</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
-            <property name="hibernate.show" value="true"/>
-            <property name="hibernate.format" value="true"/>
+            <property name="show_sql" value="true"/>
+            <property name="format_sql" value="true"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:jpa21:inheritance"/>
             <property name="javax.persistence.sql-load-script-source" value="inheritance-import.sql"/>
         </properties>
@@ -82,6 +87,7 @@
          <class>houseware.learn.jpa21.mapping.polymorphic.Cat</class>
          <class>houseware.learn.jpa21.mapping.polymorphic.Dog</class>
          <class>houseware.learn.jpa21.mapping.polymorphic.PedigreeDog</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>

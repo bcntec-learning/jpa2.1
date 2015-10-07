@@ -2,3 +2,4 @@ http://www.mastertheboss.com/jboss-frameworks/hibernate-jpa/quickstart-tutorials
 
 @Index
 @ForeignKey
+DDL Generating

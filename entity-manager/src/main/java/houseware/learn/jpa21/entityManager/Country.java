@@ -21,5 +21,7 @@ public class Country {
 
     @Column
     private Boolean enabled;
+    @Version
+    private Integer version =0;
 
 }

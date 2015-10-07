@@ -5,7 +5,7 @@
     <appender name="jpa21-test" class="ch.qos.logback.core.ConsoleAppender">
         <Target>System.out</Target>
         <encoder>
-            <pattern>%-5p %c{3}:%L - %m%n</pattern>
+            <pattern>%m%n</pattern>
         </encoder>
     </appender>
     <root level="INFO">
@@ -13,7 +13,8 @@
     </root>
 
 
-    <logger name="org.hibernate.tool.hbm2ddl.SchemaExport" level="DEBUG"/>
-    <!--<logger name="org.hibernate.loader.plan.build.spi" level="DEBUG"/>-->
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.hibernate.type" level="WARN"/>
+    <logger name="org.hibernate.hql.spi" level="INFO"/>
     <logger name="org.hibernate.SQL" level="DEBUG"/>
 </configuration>

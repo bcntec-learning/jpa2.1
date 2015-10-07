@@ -22,6 +22,8 @@ public class PolymorficTest {
         @Cleanup
         EntityManager em = emf.createEntityManager();
 
+        em.createQuery("select object (a) from Animal a ").getResultList();
+        em.createQuery("select object (a) from Dog a ").getResultList();
 
     }
 
