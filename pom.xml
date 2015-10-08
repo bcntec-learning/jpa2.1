@@ -15,6 +15,7 @@
         <module>criteria</module>
         <module>criteria-metamodel</module>
         <module>criteria-api-bulk-operations</module>
+        <module>criteria-exercise</module>
         <module>entity-manager</module>
         <module>equals-hashcode</module>
         <module>generating-db-schema</module>

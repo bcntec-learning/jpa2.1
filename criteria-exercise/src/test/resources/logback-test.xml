@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+
+    <appender name="jpa21-test" class="ch.qos.logback.core.ConsoleAppender">
+        <Target>System.out</Target>
+        <encoder>
+            <pattern>%m%n</pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="jpa21-test"/>
+    </root>
+
+
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.hibernate.type" level="WARN"/>
+    <logger name="org.hibernate.hql.spi" level="INFO"/>
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+</configuration>
