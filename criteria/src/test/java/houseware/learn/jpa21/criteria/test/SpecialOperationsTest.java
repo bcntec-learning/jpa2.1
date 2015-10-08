@@ -1,7 +1,6 @@
 package houseware.learn.jpa21.criteria.test;
 
 import houseware.learn.jpa21.criteria.Country;
-import houseware.learn.jpa21.criteria.Country_;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;

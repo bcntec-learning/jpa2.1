@@ -19,5 +19,23 @@ INSERT INTO PUBLIC.country (id,name) VALUES('ZM','ZAMBIA');
 INSERT INTO PUBLIC.country (id,name) VALUES('ZW','ZIMBABWE');
 
 
+INSERT INTO PUBLIC.company (id,name, country_id) VALUES('A1','APPLE','YE');
 INSERT INTO PUBLIC.company (id,name, country_id) VALUES('B1','HOUSEWARE','YE');
-INSERT INTO PUBLIC.company (id,name, country_id) VALUES('B2','SETTING','YE');
+INSERT INTO PUBLIC.company (id,name, country_id) VALUES('A2','IBM','ZM');
+INSERT INTO PUBLIC.company (id,name, country_id) VALUES('B2','SETTING','ZM');
+
+INSERT INTO PUBLIC.company (id,name, country_id) VALUES('C1','CORTE INGLES','UZ');
+INSERT INTO PUBLIC.company (id,name, country_id) VALUES('C2','ZARA','UZ');
+INSERT INTO PUBLIC.company (id,name, country_id) VALUES('C3','FNAC','UZ');
+
+
+INSERT INTO PUBLIC.employee (id,name, company_id, age) VALUES('AAAA1','JOBS','A1',55);
+INSERT INTO PUBLIC.employee (id,name, company_id, age) VALUES('AAAA2','COOK','A1',56);
+INSERT INTO PUBLIC.employee (id,name, company_id, age) VALUES('AAAA3','JOBS JR','A1',16);
+
+INSERT INTO PUBLIC.employee (id,name, company_id, age) VALUES('BBBB1','FRANCISCO','B1',55);
+INSERT INTO PUBLIC.employee (id,name, company_id, age) VALUES('BBBB2','MATEO','B1',3);
+
+INSERT INTO PUBLIC.employee (id,name, company_id, age) VALUES('CCCC1','ORTEGA','C1',70);
+INSERT INTO PUBLIC.employee (id,name, company_id, age) VALUES('CCCC2','NN1','C1',15);
+INSERT INTO PUBLIC.employee (id,name, company_id, age) VALUES('CCCC3','NN2','C2',15);

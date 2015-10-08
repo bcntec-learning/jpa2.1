@@ -25,9 +25,18 @@ public class AbstractDAO<E, K> {
     public EntityManager getEntityManager() {
         return entityManager;
     }
+    public EntityManager em(){
+        return entityManager;
+    }
+
     public CriteriaBuilder getCriteriaBuilder(){
          return entityManager.getCriteriaBuilder();
     }
+
+    public CriteriaBuilder cb(){
+        return getCriteriaBuilder();
+    }
+
 
     public CriteriaQuery<E> createCriteriaQuery(){
          return getCriteriaBuilder().createQuery(entityClass);

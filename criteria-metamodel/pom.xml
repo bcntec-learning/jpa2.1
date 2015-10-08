@@ -18,12 +18,14 @@
             <groupId>houseware.learn.jpa21</groupId>
             <artifactId>persistence-unit</artifactId>
             <version>${project.version}</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>houseware.learn.jpa21</groupId>
             <artifactId>mapping</artifactId>
             <version>${project.version}</version>
+            <optional>true</optional>
         </dependency>
 
 

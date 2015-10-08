@@ -2,12 +2,9 @@ package houseware.learn.jpa21.criteria.test;
 
 import houseware.learn.jpa21.criteria.Country;
 import houseware.learn.jpa21.criteria.CountryDAO;
-import houseware.learn.jpa21.criteria.Country_;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 /**
@@ -32,6 +29,15 @@ public class CountryDAOTest extends AbstractTest {
         Country country =  new CountryDAO(entityManager).findById("VU");
         assertEquals("VANUATU", country.getName());
 
+    }
+
+
+    @Test
+    public void test_listCountriesWithCompanies() {
+        EntityManager entityManager = factory.createEntityManager();
+        List<Country> countries =  new CountryDAO(entityManager).listCountriesWithCompanies();
+        assertAndShow(2, countries);
+        assertEquals("ZAMBIA", countries.get(0).getName());
     }
 
 

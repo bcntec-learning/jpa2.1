@@ -79,22 +79,24 @@ public class LockTypeTest extends Assert {
         EntityTransaction tx1 = em1.getTransaction();
         tx1.begin();
 
-        @Cleanup
-        EntityManager em2 = emf.createEntityManager();
-        EntityTransaction tx2 = em2.getTransaction();
-        tx2.begin();
+//        @Cleanup
+//        EntityManager em2 = emf.createEntityManager();
+//        EntityTransaction tx2 = em2.getTransaction();
+//        tx2.begin();
 
         Country a1 = em1.find(Country.class, country, lockModeType);
+        em1.flush();
         assertNotNull(a1);
-        Country a2 = em2.find(Country.class, country);
-        assertNotNull(a2);
+//        Country a2 = em2.find(Country.class, country);
+//        assertNotNull(a2);
+        System.err.println("A1"+a1.getVersion());
+//        System.err.println("A2"+a2.getVersion());
+//        a1.setName(a1.getName().concat("___"));
+//        a2.setName(a1.getName().concat("==="));
+//        em1.persist(a1);
+//        em2.persist(a2);
 
-        a1.setName(a1.getName().concat("___"));
-        a2.setName(a1.getName().concat("==="));
-        em1.persist(a1);
-        em2.persist(a2);
-
-        tx2.commit();
+//        tx2.commit();
         tx1.commit();
     }
 

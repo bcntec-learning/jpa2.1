@@ -1,15 +1,11 @@
 package houseware.learn.jpa21.criteria.test;
 
-import houseware.learn.jpa21.criteria.Country;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.persistence.Tuple;
 import java.util.List;
 
 /**
@@ -25,8 +21,30 @@ public abstract class AbstractTest extends Assert {
 
     }
 
-    public static void assertAndShow(int expected, List<?> elements){
-        elements.stream().forEach(System.err::println);
+    public static void assertAndShow(int expected, List<?> elements) {
+        elements.stream().forEach(System.out::println);
+        assertEquals(expected, elements.size());
+
+    }
+
+    public static void assertAndShowArray(int expected, List<Object[]> elements) {
+        elements.stream().forEach(e -> {
+            for (Object o : e) {
+                System.out.print(o + " ");
+            }
+            System.out.println("");
+        });
+        assertEquals(expected, elements.size());
+
+    }
+
+    public static void assertAndShowTuple(int expected, List<Tuple> elements) {
+        elements.stream().forEach(e -> {
+            e.getElements().stream().forEach(f -> {
+                System.out.print(e.get(f) + " ");
+            });
+            System.out.println("");
+        });
         assertEquals(expected, elements.size());
 
     }
