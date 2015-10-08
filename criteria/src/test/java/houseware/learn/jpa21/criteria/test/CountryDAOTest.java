@@ -36,7 +36,7 @@ public class CountryDAOTest extends AbstractTest {
     public void test_listCountriesWithCompanies() {
         EntityManager entityManager = factory.createEntityManager();
         List<Country> countries =  new CountryDAO(entityManager).listCountriesWithCompanies();
-        assertAndShow(2, countries);
+        assertAndShow(3, countries);
         assertEquals("ZAMBIA", countries.get(0).getName());
     }
 

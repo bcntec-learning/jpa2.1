@@ -94,7 +94,42 @@ public class FunctionsTest extends AbstractTest {
                 builder.isNotNull(root.get(Country_.name))
         );
         List<Country> countries = entityManager.createQuery(query).getResultList();
-        assertAndShow(0, countries);
+        assertAndShow(19, countries);
+
+    }
+
+    @Test
+    public void min() {
+        EntityManager entityManager = factory.createEntityManager();
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Integer> query = builder.createQuery(Integer.class);
+        Root<Employee> root = query.from(Employee.class);
+        query.select(builder.min(root.get(Employee_.age)));
+        int min = entityManager.createQuery(query).getSingleResult();
+        assertEquals(3, min);
+
+    }
+    @Test
+    public void max() {
+        EntityManager entityManager = factory.createEntityManager();
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Integer> query = builder.createQuery(Integer.class);
+        Root<Employee> root = query.from(Employee.class);
+        query.select(builder.max(root.get(Employee_.age)));
+        int min = entityManager.createQuery(query).getSingleResult();
+        assertEquals(70, min);
+
+    }
+
+    @Test
+    public void avg() {
+        EntityManager entityManager = factory.createEntityManager();
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Double> query = builder.createQuery(Double.class);
+        Root<Employee> root = query.from(Employee.class);
+        query.select(builder.avg(root.get(Employee_.age)));
+        Double min = entityManager.createQuery(query).getSingleResult();
+        assertEquals(new Double(35.625), min);
 
     }
 
