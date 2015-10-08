@@ -24,7 +24,7 @@ public class JoinTest extends AbstractTest {
         CriteriaQuery<Country> query = builder.createQuery(Country.class);
         Root<Country> countryRoot = query.from(Country.class);
         Root<Company> companyRoot = query.from(Company.class);
-        Join< Company, Country> join = companyRoot.join(Company_.country);
+        Join<Company, Country> join = companyRoot.join(Company_.country);
 
         query.select(countryRoot);
 
@@ -40,7 +40,7 @@ public class JoinTest extends AbstractTest {
         CriteriaQuery<Country> query = builder.createQuery(Country.class);
         Root<Country> countryRoot = query.from(Country.class);
         Root<Company> companyRoot = query.from(Company.class);
-        Join< Company, Country> join = companyRoot.join(Company_.country, JoinType.LEFT);
+        Join<Company, Country> join = companyRoot.join(Company_.country, JoinType.LEFT);
         query.select(countryRoot);
         List<Country> companies = entityManager.createQuery(query).getResultList();
         assertAndShow(133, companies);
@@ -55,7 +55,7 @@ public class JoinTest extends AbstractTest {
         Root<Country> countryRoot = query.from(Country.class);
         Root<Company> companyRoot = query.from(Company.class);
         query.select(countryRoot);
-        Join< Company, Country> join = companyRoot.join(Company_.country, JoinType.RIGHT);
+        Join<Company, Country> join = companyRoot.join(Company_.country, JoinType.RIGHT);
 
 
         List<Country> companies = entityManager.createQuery(query).getResultList();
@@ -63,22 +63,26 @@ public class JoinTest extends AbstractTest {
     }
 
     @Test
-     public void join_inner_on_expression() {
-         EntityManager entityManager = factory.createEntityManager();
-         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+    public void join_inner_on_expression() {
+        EntityManager entityManager = factory.createEntityManager();
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 
-         CriteriaQuery<Country> query = builder.createQuery(Country.class);
-         Root<Country> countryRoot = query.from(Country.class);
-         Root<Company> companyRoot = query.from(Company.class);
-         Join< Company, Country> join = companyRoot.join(Company_.country);
-         join.on(builder.like(countryRoot.get(Country_.name), "UNI%"));
-         query.select(countryRoot);
+        CriteriaQuery<Country> query = builder.createQuery(Country.class);
+        Root<Country> countryRoot = query.from(Country.class);
+        Root<Company> companyRoot = query.from(Company.class);
+        Join<Company, Country> join = companyRoot.join(Company_.country);
+        Predicate predicate = builder.like(countryRoot.get(Country_.name), "UNI%");
+        Predicate predicate2 = builder.like(countryRoot.get(Country_.name), "UNITED K%");
+        join.on(predicate);
+        query.select(countryRoot);
+        query.where(predicate, predicate2);
+        List<Country> companies = entityManager.createQuery(query).getResultList();
+        assertAndShow(7, companies);
+    }
 
-         List<Country> companies = entityManager.createQuery(query).getResultList();
-         assertAndShow(28, companies);
-     }
-
-
-
+    @Test
+    public void all_countries_with_companies_with_employees_younger_than_18() {
+        //todo en clase
+    }
 
 }

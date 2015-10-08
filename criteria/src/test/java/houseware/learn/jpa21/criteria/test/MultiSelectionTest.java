@@ -42,7 +42,7 @@ public class MultiSelectionTest extends AbstractTest {
         CriteriaQuery<Object[]> query = builder.createQuery(Object[].class);
 
         Root<Employee> from = query.from(Employee.class);
-        query.select(builder.array(from.get(Employee_.id), from.get(Employee_.age)));
+        query.select(builder.array(from.get(Employee_.id), from));
 
         List<Object[]> list = entityManager.createQuery(query).getResultList();
         assertAndShowArray(8, list);

@@ -17,7 +17,7 @@ public abstract class AbstractTest extends Assert {
     @BeforeClass
     public static void preapre() {
 
-        factory = Persistence.createEntityManagerFactory("jpa21:entityManager");
+        factory = Persistence.createEntityManagerFactory("jpa21:criteria");
 
     }
 

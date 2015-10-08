@@ -1,9 +1,6 @@
 package houseware.learn.jpa21.criteria.test;
 
-import houseware.learn.jpa21.criteria.Company;
-import houseware.learn.jpa21.criteria.Company_;
-import houseware.learn.jpa21.criteria.Country;
-import houseware.learn.jpa21.criteria.Employee;
+import houseware.learn.jpa21.criteria.*;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -23,7 +20,7 @@ public class FetchTest extends AbstractTest {
 
         CriteriaQuery<Company> query = builder.createQuery(Company.class);
         Root<Company> companyRoot = query.from(Company.class);
-        Fetch<Company, Employee> fetch =  companyRoot.fetch(Company_.employees);
+        Fetch<Company, Employee> fetch = companyRoot.fetch(Company_.employees);
         query.select(companyRoot);
         List<Company> companies = entityManager.createQuery(query).getResultList();
         assertAndShow(8, companies);
@@ -36,15 +33,12 @@ public class FetchTest extends AbstractTest {
 
         CriteriaQuery<Company> query = builder.createQuery(Company.class);
         Root<Company> companyRoot = query.from(Company.class);
-        Fetch<Company, Employee> fetch =  companyRoot.fetch(Company_.employees,JoinType.LEFT);
+        Fetch<Company, Employee> fetch = companyRoot.fetch(Company_.employees, JoinType.LEFT);
         query.select(companyRoot);
         List<Company> companies = entityManager.createQuery(query).getResultList();
         assertAndShow(11, companies);
     }
 
-    public void all_countries_with_companies_with_employees_younger_than_18(){
-        //todo en clase
-    }
 
 
 }

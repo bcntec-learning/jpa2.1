@@ -58,8 +58,8 @@ public class MultiselectionWithTupleTest extends AbstractTest {
         Join<Employee, Company> join = from.join(Employee_.company, JoinType.LEFT);
 
 
-        Expression min = builder.avg(from.get(Employee_.age));
-        query.select(builder.tuple(join, min));
+        Expression avg = builder.avg(from.get(Employee_.age));
+        query.select(builder.tuple(join, avg, avg));
         query.groupBy(join);
         List<Tuple> avgs = entityManager.createQuery(query).getResultList();
         assertAndShowTuple(4, avgs);
