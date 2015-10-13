@@ -9,11 +9,11 @@ import javax.persistence.*;
  * @author fphilip@houseware.es
  */
 @Slf4j
-public class HibernateFlushOperationsTest {
+public class HibernateFlushOperationsTest  extends AbstractTest{
     @Test
     public void simple_case() {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entity-manager");
 
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -65,9 +65,8 @@ public class HibernateFlushOperationsTest {
 
     private void _case_with_find(FlushModeType mode) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
 
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = factory.createEntityManager();
         em.setFlushMode(mode);
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -89,9 +88,8 @@ public class HibernateFlushOperationsTest {
 
     private void _case_with_find_notfound(FlushModeType mode) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
 
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = factory.createEntityManager();
         em.setFlushMode(mode);
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -115,9 +113,8 @@ public class HibernateFlushOperationsTest {
   
     private void _case_with_query(FlushModeType mode) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
 
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = factory.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         em.setFlushMode(mode);
         tx.begin();

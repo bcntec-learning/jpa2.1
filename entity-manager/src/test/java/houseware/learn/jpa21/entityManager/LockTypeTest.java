@@ -9,7 +9,7 @@ import javax.persistence.*;
 /**
  * @author fphilip@houseware.es
  */
-public class LockTypeTest extends Assert {
+public class LockTypeTest extends AbstractTest {
 
 
 //    @Test(expected = RollbackException.class)
@@ -43,14 +43,13 @@ public class LockTypeTest extends Assert {
 
 // todo   @Test(expected = RollbackException.class)
     public void lock_unlock() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
         @Cleanup
-        EntityManager em1 = emf.createEntityManager();
+        EntityManager em1 = factory.createEntityManager();
         EntityTransaction tx1 = em1.getTransaction();
         tx1.begin();
 
         @Cleanup
-        EntityManager em2 = emf.createEntityManager();
+        EntityManager em2 = factory.createEntityManager();
         EntityTransaction tx2 = em2.getTransaction();
         tx2.begin();
 
@@ -73,14 +72,13 @@ public class LockTypeTest extends Assert {
     public void _test(String country, LockModeType lockModeType) {
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
         @Cleanup
-        EntityManager em1 = emf.createEntityManager();
+        EntityManager em1 = factory.createEntityManager();
         EntityTransaction tx1 = em1.getTransaction();
         tx1.begin();
 
 //        @Cleanup
-//        EntityManager em2 = emf.createEntityManager();
+//        EntityManager em2 = factory.createEntityManager();
 //        EntityTransaction tx2 = em2.getTransaction();
 //        tx2.begin();
 

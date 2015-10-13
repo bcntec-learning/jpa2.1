@@ -15,7 +15,7 @@ import java.util.Map;
  * @author fphilip@houseware.es
  */
 @Slf4j
-public class HintsTest {
+public class HintsTest  extends AbstractTest{
 
     static EntityManagerFactory emf;
 
@@ -23,7 +23,7 @@ public class HintsTest {
     public static void createTestData() {
         Map<String,String> m = new HashMap<>();
         m.put("hibernate.show", "false");
-        emf = Persistence.createEntityManagerFactory("jpa21:entityManager",m);
+        emf = Persistence.createEntityManagerFactory("jpa21:entity-manager",m);
 
         EntityManager em = emf.createEntityManager();
         for (int i = 0; i < 10000; i++) {

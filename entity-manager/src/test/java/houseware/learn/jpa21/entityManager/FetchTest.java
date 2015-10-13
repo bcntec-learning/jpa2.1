@@ -14,15 +14,14 @@ import javax.persistence.Persistence;
  * @author fphilip@houseware.es
  */
 @Slf4j
-public class FetchTest extends Assert {
+public class FetchTest extends AbstractTest {
 
     @Test
     public void relation_scenario1() {
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
 
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = factory.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         Country c = new Country();
@@ -37,7 +36,7 @@ public class FetchTest extends Assert {
         tx.commit();
         tx.begin();
 
-        EntityManager em2 = emf.createEntityManager();
+        EntityManager em2 = factory.createEntityManager();
         People p = em.find(People.class, 91);
         assertNotNull(p);
         assertEquals("Mateo", p.getName());
@@ -52,9 +51,7 @@ public class FetchTest extends Assert {
     public void relation_scenario2() {
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
-
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = factory.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         Country c = new Country();
@@ -70,7 +67,7 @@ public class FetchTest extends Assert {
         em.close();
 
 
-        EntityManager em2 = emf.createEntityManager();
+        EntityManager em2 = factory.createEntityManager();
         People p = em2.find(People.class, 92);
         em2.close();
         assertNotNull(p);

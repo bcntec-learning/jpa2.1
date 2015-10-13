@@ -16,7 +16,7 @@ public class PersistVsMergeTest extends Assert {
     public void simple_scenario1() {
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entity-manager");
 
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -44,7 +44,7 @@ public class PersistVsMergeTest extends Assert {
     public void simple_scenario2() {
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entity-manager");
 
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -70,7 +70,7 @@ public class PersistVsMergeTest extends Assert {
     public void simple_scenario3() {
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entity-manager");
 
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
