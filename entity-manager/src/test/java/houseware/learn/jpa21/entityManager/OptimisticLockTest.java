@@ -9,7 +9,7 @@ import javax.persistence.*;
 /**
  * @author fphilip@houseware.es
  */
-public class OptimisticLockTest extends Assert {
+public class OptimisticLockTest extends AbstractTest {
 
 
 
@@ -17,14 +17,13 @@ public class OptimisticLockTest extends Assert {
     public void optimistic_lock_update() {
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
         @Cleanup
-        EntityManager em1 = emf.createEntityManager();
+        EntityManager em1 = factory.createEntityManager();
         EntityTransaction tx1 = em1.getTransaction();
         tx1.begin();
 
         @Cleanup
-        EntityManager em2 = emf.createEntityManager();
+        EntityManager em2 = factory.createEntityManager();
         EntityTransaction tx2 = em2.getTransaction();
         tx2.begin();
 
@@ -45,14 +44,13 @@ public class OptimisticLockTest extends Assert {
     public void optimistic_lock_remove() {
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa21:entityManager");
         @Cleanup
-        EntityManager em1 = emf.createEntityManager();
+        EntityManager em1 = factory.createEntityManager();
         EntityTransaction tx1 = em1.getTransaction();
         tx1.begin();
 
         @Cleanup
-        EntityManager em2 = emf.createEntityManager();
+        EntityManager em2 = factory.createEntityManager();
         EntityTransaction tx2 = em2.getTransaction();
         tx2.begin();
 
