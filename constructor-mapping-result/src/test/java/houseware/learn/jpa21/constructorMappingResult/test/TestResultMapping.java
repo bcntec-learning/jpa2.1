@@ -38,7 +38,8 @@ public class TestResultMapping {
                         "persistence.xml")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
                 .addAsManifestResource("META-INF/orm.xml",
-                        "orm.xml");
+                        "orm.xml").
+                addAsResource("logback.xml");
         log.info(j.toString(true));
         return j;
     }
