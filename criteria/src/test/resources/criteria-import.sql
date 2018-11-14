@@ -20,7 +20,7 @@ INSERT INTO PUBLIC.country (id,name) VALUES('ZW','ZIMBABWE');
 
 
 INSERT INTO PUBLIC.company (id,name, country_id) VALUES('A1','APPLE','YE');
-INSERT INTO PUBLIC.company (id,name, country_id) VALUES('B1','HOUSEWARE','YE');
+INSERT INTO PUBLIC.company (id,name, country_id) VALUES('B1','BCNTEC','YE');
 INSERT INTO PUBLIC.company (id,name, country_id) VALUES('A2','IBM','ZM');
 INSERT INTO PUBLIC.company (id,name, country_id) VALUES('B2','SETTING','ZM');
 

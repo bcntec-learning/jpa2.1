@@ -4,7 +4,7 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
     <persistence-unit name="jpa21:attribute-converter">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>houseware.learn.jpa21.attributeConverter.User</class>
+        <class>bcntec.learning.jpa21.attributeConverter.User</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <!--<property name="hibernate.hbm2ddl.auto" value="drop-and-create"/>-->

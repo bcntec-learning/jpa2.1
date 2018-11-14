@@ -5,8 +5,8 @@
 
     <persistence-unit name="jpa21:simple-event-listener">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>houseware.learn.jpa21.entityEventListener.simple.Annotated</class>
-        <class>houseware.learn.jpa21.entityEventListener.simple.Simple</class>
+        <class>bcntec.learning.jpa21.entityEventListener.simple.Annotated</class>
+        <class>bcntec.learning.jpa21.entityEventListener.simple.Simple</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
@@ -18,7 +18,7 @@
 
     <persistence-unit name="jpa21:inherit-event-listener">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>houseware.learn.jpa21.entityEventListener.inherit.Inherit</class>
+        <class>bcntec.learning.jpa21.entityEventListener.inherit.Inherit</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>

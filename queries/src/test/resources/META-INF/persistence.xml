@@ -6,10 +6,10 @@
 
     <persistence-unit name="jpa21:queries">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>houseware.learn.jpa21.queries.MessageType</class>
-        <class>houseware.learn.jpa21.queries.MessageTag</class>
-        <class>houseware.learn.jpa21.queries.Message</class>
-        <class>houseware.learn.jpa21.queries.User</class>
+        <class>bcntec.learning.jpa21.queries.MessageType</class>
+        <class>bcntec.learning.jpa21.queries.MessageTag</class>
+        <class>bcntec.learning.jpa21.queries.Message</class>
+        <class>bcntec.learning.jpa21.queries.User</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>

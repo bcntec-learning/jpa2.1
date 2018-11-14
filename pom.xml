@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>houseware.learn.jpa21</groupId>
+    <groupId>bcntec.learning.jpa21</groupId>
     <artifactId>jpa21</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
@@ -49,8 +49,6 @@
 
         <reflections.version>0.9.5</reflections.version>
 
-        <camel.version>2.15.2</camel.version>
-
         <logback.version>1.1.2</logback.version>
         <janino.version>2.7.8</janino.version>
         <slf4j.version>1.7.7</slf4j.version>
@@ -67,7 +65,7 @@
         <wildfly.arquillian.version>1.0.1.Final</wildfly.arquillian.version>
         <wildfly.version>9.0.1.Final</wildfly.version>
 
-        <hibernate.version>5.0.1.Final</hibernate.version>
+        <hibernate.version>5.3.3.Final</hibernate.version>
     </properties>
 
 
@@ -134,7 +132,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.16.0</version>
+                <version>1.16.22</version>
                 <scope>provided</scope>
             </dependency>
 

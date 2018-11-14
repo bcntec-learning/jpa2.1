@@ -7,8 +7,8 @@
     <persistence-unit name="jpa21:equals-hashcode" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <non-jta-data-source>java:/datasource</non-jta-data-source>
-        <class>houseware.learn.jpa21.equalsHashcode.ParentEH</class>
-        <class>houseware.learn.jpa21.equalsHashcode.ChildEH</class>
+        <class>bcntec.learning.jpa21.equalsHashcode.ParentEH</class>
+        <class>bcntec.learning.jpa21.equalsHashcode.ChildEH</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>

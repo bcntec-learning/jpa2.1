@@ -5,10 +5,10 @@
 
     <persistence-unit name="jpa21:criteria-api-bulk-operations" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>houseware.learn.jpa21.criteriaApiBulkOperations.Country</class>
-        <class>houseware.learn.jpa21.criteriaApiBulkOperations.Product</class>
-        <class>houseware.learn.jpa21.criteriaApiBulkOperations.Price</class>
-        <class>houseware.learn.jpa21.criteriaApiBulkOperations.PricePK</class>
+        <class>bcntec.learning.jpa21.criteriaApiBulkOperations.Country</class>
+        <class>bcntec.learning.jpa21.criteriaApiBulkOperations.Product</class>
+        <class>bcntec.learning.jpa21.criteriaApiBulkOperations.Price</class>
+        <class>bcntec.learning.jpa21.criteriaApiBulkOperations.PricePK</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>

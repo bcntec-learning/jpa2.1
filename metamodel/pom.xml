@@ -5,7 +5,7 @@
 
     <artifactId>metamodel</artifactId>
     <parent>
-        <groupId>houseware.learn.jpa21</groupId>
+        <groupId>bcntec.learning.jpa21</groupId>
         <artifactId>jpa21</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../</relativePath>
@@ -17,13 +17,13 @@
     <dependencies>
 
         <dependency>
-            <groupId>houseware.learn.jpa21</groupId>
+            <groupId>bcntec.learning.jpa21</groupId>
             <artifactId>persistence-unit</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>houseware.learn.jpa21</groupId>
+            <groupId>bcntec.learning.jpa21</groupId>
             <artifactId>mapping</artifactId>
             <version>${project.version}</version>
         </dependency>

@@ -6,7 +6,7 @@
     <persistence-unit-metadata>
         <persistence-unit-defaults>
             <entity-listeners>
-                <entity-listener class="houseware.learn.jpa21.entityEventListener.DefaultListener">
+                <entity-listener class="bcntec.learning.jpa21.entityEventListener.DefaultListener">
                     <pre-persist method-name="pre"/>
                     <pre-update method-name="pre"/>
                     <pre-remove method-name="pre"/>

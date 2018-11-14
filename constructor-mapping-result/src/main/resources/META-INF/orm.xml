@@ -5,7 +5,7 @@
                  version="2.1">
 
     <sql-result-set-mapping name="AuthorBookCountMappingXml">
-        <entity-result entity-class="houseware.learn.jpa21.constructorMappingResult.Author">
+        <entity-result entity-class="bcntec.learning.jpa21.constructorMappingResult.Author">
             <field-result name="id" column="id"/>
             <field-result name="firstName" column="firstName"/>
             <field-result name="lastName" column="lastName"/>
@@ -14,13 +14,13 @@
         <column-result name="bookCount" class="java.lang.Long"/>
     </sql-result-set-mapping>
     <sql-result-set-mapping name="BookAuthorMappingXml">
-        <entity-result entity-class="houseware.learn.jpa21.constructorMappingResult.Author">
+        <entity-result entity-class="bcntec.learning.jpa21.constructorMappingResult.Author">
             <field-result name="id" column="authorId"/>
             <field-result name="firstName" column="firstName"/>
             <field-result name="lastName" column="lastName"/>
             <field-result name="version" column="authorVersion"/>
         </entity-result>
-        <entity-result entity-class="houseware.learn.jpa21.constructorMappingResult.Book">
+        <entity-result entity-class="bcntec.learning.jpa21.constructorMappingResult.Book">
             <field-result name="id" column="id"/>
             <field-result name="title" column="title"/>
             <field-result name="author" column="author_id"/>
@@ -30,7 +30,7 @@
 
 
     <sql-result-set-mapping name="TotalBookMappingXml">
-        <constructor-result target-class="houseware.learn.jpa21.constructorMappingResult.TotalBook">
+        <constructor-result target-class="bcntec.learning.jpa21.constructorMappingResult.TotalBook">
             <column name="id" class="java.lang.Long"/>
             <column name="firstName"/>
             <column name="lastName"/>

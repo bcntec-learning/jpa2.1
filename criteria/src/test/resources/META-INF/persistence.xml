@@ -6,9 +6,9 @@
 
     <persistence-unit name="jpa21:criteria">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>houseware.learn.jpa21.criteria.Country</class>
-        <class>houseware.learn.jpa21.criteria.Employee</class>
-        <class>houseware.learn.jpa21.criteria.Company</class>
+        <class>bcntec.learning.jpa21.criteria.Country</class>
+        <class>bcntec.learning.jpa21.criteria.Employee</class>
+        <class>bcntec.learning.jpa21.criteria.Company</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
